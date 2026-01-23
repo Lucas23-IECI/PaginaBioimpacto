@@ -65,18 +65,18 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
     };
 
     return (
-        <div className="relative flex-1 overflow-hidden w-full h-full min-h-[500px] lg:h-auto group bg-forest-100 dark:bg-forest-900 transition-colors duration-300">
+        <div className="relative flex-1 overflow-hidden w-full h-full min-h-[500px] lg:h-auto group bg-white transition-colors duration-300">
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
                 className="flex w-full h-full overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth"
             >
                 {images.map((img, idx) => (
-                    <div key={idx} className="min-w-full h-full snap-center relative shrink-0">
+                    <div key={idx} className="min-w-full h-full snap-center relative shrink-0 flex items-center justify-center p-4">
                         <img
                             src={img.src}
                             alt={img.label}
-                            className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100 ${img.className || ''}`}
+                            className={`max-w-full max-h-full object-contain transition-transform duration-1000 group-hover:scale-105 ${img.className || ''}`}
                         />
                         {/* Gradient overlay only for mobile to help text readability if needed */}
                         <div className="absolute inset-0 bg-gradient-to-r from-forest-900/40 to-transparent lg:hidden pointer-events-none"></div>

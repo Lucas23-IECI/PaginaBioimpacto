@@ -123,10 +123,10 @@ const Products: React.FC = () => {
     const [selectedBSFIndex, setSelectedBSFIndex] = useState<number>(1); // Default to 50 Unid (Index 1)
 
     const wormFormats = [
-        { id: 500, label: "500", sub: "Unidades", image: "/Fotos/Productos/NucleosDeLombrices/500.png" },
-        { id: 750, label: "750", sub: "Unidades", image: "/Fotos/Productos/NucleosDeLombrices/750.png" },
-        { id: 1000, label: "1.000", sub: "Unidades", image: "/Fotos/Productos/NucleosDeLombrices/1000.png" },
-        { id: 2000, label: "2.000", sub: "Unidades", image: "/Fotos/Productos/NucleosDeLombrices/2000.png" }
+        { id: 500, label: "500", sub: "Unidades" },
+        { id: 750, label: "750", sub: "Unidades" },
+        { id: 1000, label: "1.000", sub: "Unidades" },
+        { id: 2000, label: "2.000", sub: "Unidades" }
     ];
 
     const bsfFormats = [

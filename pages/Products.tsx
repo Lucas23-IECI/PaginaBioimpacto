@@ -346,7 +346,7 @@ const Products: React.FC = () => {
                                 <img
                                     alt="Instalaciones de Bioconversión Industrial"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-75"
-                                    src="/Fotos/Productos/AsesoriaTecnica/FOTO%20ASESORIA.png"
+                                    src="/Fotos/Productos/AsesoriaTecnica/AsesoriaTec.jpg"
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>

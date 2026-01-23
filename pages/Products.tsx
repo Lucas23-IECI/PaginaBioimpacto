@@ -118,10 +118,11 @@ const Products: React.FC = () => {
     const [selectedBSFIndex, setSelectedBSFIndex] = useState<number>(0); // Default to 25 Unid (Index 0)
 
     const wormFormats = [
-        { id: 500, label: "500", sub: "Unidades", price: "$12.000", unitPrice: "$24 c/u" },
-        { id: 750, label: "750", sub: "Unidades", price: "$16.500", unitPrice: "$22 c/u" },
-        { id: 1000, label: "1.000", sub: "Unidades", price: "$20.000", unitPrice: "$20 c/u" },
-        { id: 2000, label: "2.000", sub: "Unidades", price: "$36.000", unitPrice: "$18 c/u" }
+        { id: 250, label: "250", sub: "Unidades", price: "$9.990", unitPrice: "$40 c/u" },
+        { id: 500, label: "500", sub: "Unidades", price: "$18.090", unitPrice: "$36 c/u" },
+        { id: 750, label: "750", sub: "Unidades", price: "$25.990", unitPrice: "$34 c/u" },
+        { id: 1000, label: "1.000", sub: "Unidades", price: "$30.990", unitPrice: "$31 c/u" },
+        { id: 2000, label: "2.000", sub: "Unidades", price: "$55.990", unitPrice: "$28 c/u" }
     ];
 
     const bsfFormats = [
@@ -132,6 +133,7 @@ const Products: React.FC = () => {
     ];
 
     const wormImages = [
+        { src: "/Fotos/Productos/NucleosDeLombrices/250.webp", label: "250 Unidades" },
         { src: "/Fotos/Productos/NucleosDeLombrices/500.webp", label: "500 Unidades" },
         { src: "/Fotos/Productos/NucleosDeLombrices/750.webp", label: "750 Unidades" },
         { src: "/Fotos/Productos/NucleosDeLombrices/1000.webp", label: "1.000 Unidades" },

@@ -95,6 +95,17 @@ const Footer: React.FC = () => {
 
                 <div className="border-t border-forest-900/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-forest-800/80 uppercase tracking-wider">
                     <p>© 2026 BioImpacto. Todos los derechos reservados.</p>
+                    <p className="mt-4 md:mt-0 normal-case tracking-normal">
+                        Hecho con <span className="text-red-500">❤</span> por{' '}
+                        <a 
+                            href="https://wa.me/56956994930" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-forest-900 font-medium hover:underline transition-colors"
+                        >
+                            Lucas Méndez
+                        </a>
+                    </p>
                     <div className="flex gap-8 mt-4 md:mt-0">
                         <Link to="/privacidad" className="hover:text-forest-900 transition-colors">Privacidad</Link>
                         <Link to="/terminos" className="hover:text-forest-900 transition-colors">Términos</Link>

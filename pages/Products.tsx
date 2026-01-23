@@ -213,8 +213,8 @@ const Products: React.FC = () => {
                                                     key={format.id}
                                                     onClick={() => setSelectedWormIndex(idx)}
                                                     className={`p-1.5 rounded-sm text-center transition-all duration-300 border ${selectedWormIndex === idx
-                                                        ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
-                                                        : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
+                                                            ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
+                                                            : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
                                                         }`}
                                                 >
                                                     <span className={`block font-bold text-sm ${selectedWormIndex === idx ? 'text-white dark:text-forest-900' : 'text-forest-900 dark:text-white'}`}>
@@ -275,7 +275,7 @@ const Products: React.FC = () => {
                 <div id="mosca" className="container mx-auto px-4 mb-16 max-w-7xl scroll-mt-32">
                     <ScrollReveal>
                         <div className="flex flex-col lg:flex-row-reverse shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300 min-h-[400px] md:min-h-[500px]">
-
+                            
                             {/* Text Column (Right) - Dark Themed: Forest 900 */}
                             <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden h-full">
                                 {/* Decorative Blur */}
@@ -305,8 +305,8 @@ const Products: React.FC = () => {
                                                 key={format.id}
                                                 onClick={() => setSelectedBSFIndex(idx)}
                                                 className={`p-2 rounded-sm text-center transition-all duration-300 border flex flex-col items-center justify-center min-h-[60px] md:h-16 ${selectedBSFIndex === idx
-                                                    ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
-                                                    : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
+                                                        ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
+                                                        : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
                                                     }`}
                                             >
                                                 <span className={`block font-bold text-base md:text-lg leading-none ${selectedBSFIndex === idx ? 'text-forest-900' : 'text-white'}`}>
@@ -332,7 +332,7 @@ const Products: React.FC = () => {
                                     </Link>
                                 </div>
                             </div>
-
+                            
                             {/* Image Column (Left) */}
                             <div className="lg:w-1/2 h-full">
                                 <ProductCarousel
@@ -358,7 +358,7 @@ const Products: React.FC = () => {
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>
-
+                            
                             {/* Right Content Side - Dark Theme Always */}
                             <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                                 {/* Decorative Glow */}

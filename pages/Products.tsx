@@ -65,35 +65,39 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
     };
 
     return (
-        <div className="relative flex-1 overflow-hidden w-full h-full min-h-[500px] lg:h-auto group bg-white transition-colors duration-300">
+        <div className="relative flex-1 overflow-hidden w-full h-full min-h-[500px] lg:h-auto group bg-forest-50 dark:bg-forest-900 transition-colors duration-300">
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
                 className="flex w-full h-full overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth"
             >
                 {images.map((img, idx) => (
-                    <div key={idx} className="min-w-full h-full snap-center relative shrink-0 flex items-center justify-center p-4">
+                    <div key={idx} className="min-w-full h-full snap-center relative shrink-0 flex items-center justify-center p-8 lg:p-12">
+                        {/* Decorative background circle behind product */}
+                        <div className="absolute inset-0 bg-forest-100/50 dark:bg-forest-800/50 z-0"></div>
+                        <div className="absolute inset-0 flex items-center justify-center z-0">
+                            <div className="w-[80%] h-[80%] bg-white/50 dark:bg-white/5 rounded-full blur-3xl transform scale-75"></div>
+                        </div>
+
                         <img
                             src={img.src}
                             alt={img.label}
-                            className={`max-w-full max-h-full object-contain transition-transform duration-1000 group-hover:scale-105 ${img.className || ''}`}
+                            className={`relative z-10 max-w-full max-h-full object-contain drop-shadow-2xl transition-transform duration-700 ease-out group-hover:scale-105 ${img.className || ''}`}
                         />
-                        {/* Gradient overlay only for mobile to help text readability if needed */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-forest-900/40 to-transparent lg:hidden pointer-events-none"></div>
                     </div>
                 ))}
             </div>
 
-            <div className="absolute inset-0 pointer-events-none flex items-center justify-between px-4">
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-between px-4 z-20">
                 <button
                     onClick={() => scroll('left')}
-                    className="pointer-events-auto w-10 h-10 rounded-full bg-white/40 dark:bg-forest-900/40 hover:bg-gold-400 text-forest-900 dark:text-white hover:text-forest-900 backdrop-blur-md flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 border border-white/20 dark:border-white/10 shadow-lg"
+                    className="pointer-events-auto w-12 h-12 rounded-full bg-white/80 dark:bg-forest-800/80 hover:bg-gold-400 text-forest-900 dark:text-white hover:text-forest-900 backdrop-blur-md flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 border border-forest-100 dark:border-forest-700 shadow-lg"
                 >
                     <span className="material-icons">chevron_left</span>
                 </button>
                 <button
                     onClick={() => scroll('right')}
-                    className="pointer-events-auto w-10 h-10 rounded-full bg-white/40 dark:bg-forest-900/40 hover:bg-gold-400 text-forest-900 dark:text-white hover:text-forest-900 backdrop-blur-md flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 border border-white/20 dark:border-white/10 shadow-lg"
+                    className="pointer-events-auto w-12 h-12 rounded-full bg-white/80 dark:bg-forest-800/80 hover:bg-gold-400 text-forest-900 dark:text-white hover:text-forest-900 backdrop-blur-md flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 border border-forest-100 dark:border-forest-700 shadow-lg"
                 >
                     <span className="material-icons">chevron_right</span>
                 </button>
@@ -103,7 +107,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
                 {images.map((_, idx) => (
                     <div
                         key={idx}
-                        className={`w-2 h-2 rounded-full backdrop-blur-sm transition-all duration-300 ${idx === currentIndex ? 'bg-gold-400 shadow-[0_0_10px_rgba(212,175,55,0.5)] scale-125' : 'bg-white/60 dark:bg-white/30'}`}
+                        className={`w-2.5 h-2.5 rounded-full backdrop-blur-sm transition-all duration-300 ${idx === currentIndex ? 'bg-gold-400 shadow-[0_0_10px_rgba(212,175,55,0.5)] scale-110' : 'bg-forest-300/50 dark:bg-forest-600/50'}`}
                     ></div>
                 ))}
             </div>
@@ -205,8 +209,8 @@ const Products: React.FC = () => {
                                                     key={format.id}
                                                     onClick={() => setSelectedWormIndex(idx)}
                                                     className={`p-1.5 rounded-sm text-center transition-all duration-300 border ${selectedWormIndex === idx
-                                                        ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
-                                                        : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
+                                                            ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
+                                                            : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
                                                         }`}
                                                 >
                                                     <span className={`block font-bold text-sm ${selectedWormIndex === idx ? 'text-white dark:text-forest-900' : 'text-forest-900 dark:text-white'}`}>
@@ -297,8 +301,8 @@ const Products: React.FC = () => {
                                                 key={format.id}
                                                 onClick={() => setSelectedBSFIndex(idx)}
                                                 className={`p-2 rounded-sm text-center transition-all duration-300 border flex flex-col items-center justify-center h-16 ${selectedBSFIndex === idx
-                                                    ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
-                                                    : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
+                                                        ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
+                                                        : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
                                                     }`}
                                             >
                                                 <span className={`block font-bold text-lg leading-none ${selectedBSFIndex === idx ? 'text-forest-900' : 'text-white'}`}>
@@ -345,8 +349,8 @@ const Products: React.FC = () => {
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group">
                                 <img
                                     alt="Instalaciones de Bioconversión Industrial"
-                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-                                    src="/Fotos/Productos/AsesoriaTecnica/AsesoriaTec.jpg"
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-75"
+                                    src="https://images.unsplash.com/photo-1599587440402-23c2a6883210?q=80&w=2070&auto=format&fit=crop"
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>

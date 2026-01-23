@@ -40,7 +40,7 @@ const Home: React.FC = () => {
                 </div>
             </header>
 
-            <section className="bg-forest-50 dark:bg-forest-900 pt-32 pb-0 relative overflow-hidden transition-colors duration-300" id="soluciones">
+            <section className="lazy-section bg-forest-50 dark:bg-forest-900 pt-32 pb-0 relative overflow-hidden transition-colors duration-300" id="soluciones">
                 <ScrollReveal className="relative z-10 container mx-auto px-4 mb-24 text-center">
                     <span className="text-gold-600 dark:text-gold-500 uppercase tracking-[0.2em] text-xs font-bold mb-4 block">Nuestras Capacidades</span>
                     <h2 className="text-4xl md:text-6xl font-display text-forest-900 dark:text-white mb-8 transition-colors duration-300">Soluciones de Bioconversión</h2>
@@ -57,6 +57,8 @@ const Home: React.FC = () => {
                                     alt="Lombrices Californianas en sustrato"
                                     loading="lazy"
                                     decoding="async"
+                                    width="800"
+                                    height="875"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -135,6 +137,8 @@ const Home: React.FC = () => {
                                     alt="Larvas de Mosca Soldado Negra"
                                     loading="lazy"
                                     decoding="async"
+                                    width="800"
+                                    height="875"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter hover:contrast-110 opacity-90 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -145,7 +149,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Consulting Section - New Design */}
-            <section className="bg-forest-900 text-white overflow-hidden">
+            <section className="lazy-section bg-forest-900 text-white overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Left Image Side */}
                     <div className="relative min-h-[500px] lg:min-h-[900px]">
@@ -154,6 +158,8 @@ const Home: React.FC = () => {
                             alt="Invernadero y estructura verde"
                             loading="lazy"
                             decoding="async"
+                            width="960"
+                            height="900"
                             className="absolute inset-0 w-full h-full object-cover opacity-80"
                         />
                         <div className="absolute inset-0 bg-forest-900/20"></div>
@@ -249,7 +255,7 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-            <section className="relative py-40" style={{
+            <section className="lazy-section relative py-40" style={{
                 backgroundImage: `url('/Fotos/Background/BackgroundOrigen.webp')`,
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',

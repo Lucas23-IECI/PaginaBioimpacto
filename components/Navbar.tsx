@@ -96,6 +96,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                             alt="BioImpacto Logo" 
                             loading="eager"
                             decoding="async"
+                            fetchPriority="high"
                             className="h-11 w-11 rounded-full object-cover border-2 border-gold-400 shadow-md group-hover:scale-105 transition-transform duration-300" 
                         />
                         <span className={`text-2xl font-display tracking-tight transition-colors duration-300 ${textColorClass}`}>

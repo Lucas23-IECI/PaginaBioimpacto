@@ -14,7 +14,7 @@ const AccordionItem: React.FC<{ question: string; answer: React.ReactNode }> = (
                 aria-expanded={isOpen}
             >
                 <span className="font-medium text-forest-900 dark:text-cream pr-4 text-sm md:text-base transition-colors duration-300">{question}</span>
-                <span className={`material-symbols-outlined text-gold-600 dark:text-gold-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} style={{ fontVariationSettings: "'FILL' 0" }}>expand_more</span>
+                <span className={`material-icons text-gold-600 dark:text-gold-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>expand_more</span>
             </button>
             <div
                 className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
@@ -70,7 +70,7 @@ const FAQ: React.FC = () => {
                             <ScrollReveal>
                                 <div className="flex items-center gap-4 mb-8 border-b border-forest-200 dark:border-forest-700 pb-4 transition-colors duration-300">
                                     <span className="p-2 bg-gold-400/10 rounded-sm text-gold-600 dark:text-gold-400">
-                                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>inventory_2</span>
+                                        <span className="material-icons">inventory_2</span>
                                     </span>
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Nuestros Productos</h2>
                                 </div>
@@ -112,7 +112,7 @@ const FAQ: React.FC = () => {
                             <ScrollReveal>
                                 <div className="flex items-center gap-4 mb-8 border-b border-forest-200 dark:border-forest-700 pb-4 transition-colors duration-300">
                                     <span className="p-2 bg-gold-400/10 rounded-sm text-gold-600 dark:text-gold-400">
-                                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>recycling</span>
+                                        <span className="material-icons">recycling</span>
                                     </span>
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Proceso de Bioconversión</h2>
                                 </div>
@@ -144,7 +144,7 @@ const FAQ: React.FC = () => {
                             <ScrollReveal>
                                 <div className="flex items-center gap-4 mb-8 border-b border-forest-200 dark:border-forest-700 pb-4 transition-colors duration-300">
                                     <span className="p-2 bg-gold-400/10 rounded-sm text-gold-600 dark:text-gold-400">
-                                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>local_shipping</span>
+                                        <span className="material-icons">local_shipping</span>
                                     </span>
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Logística y Envíos</h2>
                                 </div>
@@ -162,8 +162,7 @@ const FAQ: React.FC = () => {
                             <ScrollReveal>
                                 <div className="flex items-center gap-4 mb-8 border-b border-forest-200 dark:border-forest-700 pb-4 transition-colors duration-300">
                                     <span className="p-2 bg-gold-400/10 rounded-sm text-gold-600 dark:text-gold-400">
-                                        {/* Using 'psychology' for the brain/strategy icon concept */}
-                                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>psychology</span>
+                                        <span className="material-icons">psychology</span>
                                     </span>
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Consultoría y Acompañamiento Estratégico</h2>
                                 </div>

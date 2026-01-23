@@ -118,10 +118,10 @@ const Products: React.FC = () => {
     const [selectedBSFIndex, setSelectedBSFIndex] = useState<number>(0); // Default to 25 Unid (Index 0)
 
     const wormFormats = [
-        { id: 500, label: "500", sub: "Unidades" },
-        { id: 750, label: "750", sub: "Unidades" },
-        { id: 1000, label: "1.000", sub: "Unidades" },
-        { id: 2000, label: "2.000", sub: "Unidades" }
+        { id: 500, label: "500", sub: "Unidades", price: "$12.000", unitPrice: "$24 c/u" },
+        { id: 750, label: "750", sub: "Unidades", price: "$16.500", unitPrice: "$22 c/u" },
+        { id: 1000, label: "1.000", sub: "Unidades", price: "$20.000", unitPrice: "$20 c/u" },
+        { id: 2000, label: "2.000", sub: "Unidades", price: "$36.000", unitPrice: "$18 c/u" }
     ];
 
     const bsfFormats = [
@@ -212,80 +212,55 @@ const Products: React.FC = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className="lg:w-1/2 bg-white dark:bg-forest-800 p-6 md:p-8 flex flex-col justify-center border-l border-gold-400/30 relative overflow-hidden transition-colors duration-300">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 dark:bg-gold-400/5 rounded-full blur-3xl"></div>
-                                <span className="text-gold-600 dark:text-gold-400 text-xs uppercase tracking-[0.25em] mb-2 font-bold flex items-center gap-2">
-                                    <span className="w-6 h-[1px] bg-gold-400"></span> Eisenia foetida
-                                </span>
-                                <h2 className="text-2xl md:text-3xl font-display text-forest-900 dark:text-white mb-1 transition-colors duration-300">Núcleos de Lombriz Californiana</h2>
-                                <p className="text-gold-600 dark:text-gold-500 font-bold text-[10px] md:text-xs uppercase tracking-wide mb-3">Producción de humus rápida, estable y de alta calidad</p>
+                            <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                                {/* Decorative Blur */}
+                                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold-400/5 rounded-full blur-3xl"></div>
 
-                                <p className="text-forest-700 dark:text-forest-200 mb-6 font-light leading-relaxed transition-colors duration-300 text-sm">
-                                    Diseñados para acelerar tu proceso de compostaje desde el primer día.
-                                    Nuestros núcleos garantizan una rápida colonización del sustrato, alta tasa de reproducción y producción constante de humus estable.
-                                    <br /><span className="font-medium block mt-2">Menos tiempo de espera. Más abono. Resultados en semanas.</span>
+                                <span className="text-gold-400 text-xs uppercase tracking-[0.25em] mb-4 font-bold flex items-center gap-2">
+                                    <span className="w-8 h-[1px] bg-gold-400"></span> Eisenia foetida
+                                </span>
+                                <h2 className="text-2xl md:text-3xl font-display text-white mb-6">Núcleos de Lombriz Californiana</h2>
+                                <p className="text-gray-300 mb-6 font-light leading-relaxed text-sm md:text-base">
+                                    Diseñados para acelerar tu proceso de compostaje desde el primer día. Nuestros núcleos garantizan una rápida colonización del sustrato, alta tasa de reproducción y producción constante de humus estable.
+                                    <br /><br />
+                                    Menos tiempo de espera. Más abono. Resultados en semanas. Ideales para huertos, jardines, compostaje domiciliario, proyectos educativos y emprendimientos.
                                 </p>
 
-                                {/* 2-Column Layout Compact */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                                    {/* Formats */}
-                                    <div>
-                                        <h4 className="text-gold-600 dark:text-gold-400 text-[10px] uppercase tracking-widest font-bold mb-2">Selecciona formato</h4>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            {wormFormats.map((format, idx) => (
-                                                <button
-                                                    key={format.id}
-                                                    onClick={() => setSelectedWormIndex(idx)}
-                                                    className={`p-1.5 rounded-sm text-center transition-all duration-300 border ${selectedWormIndex === idx
-                                                            ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
-                                                            : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
-                                                        }`}
-                                                >
-                                                    <span className={`block font-bold text-sm ${selectedWormIndex === idx ? 'text-white dark:text-forest-900' : 'text-forest-900 dark:text-white'}`}>
-                                                        {format.label}
-                                                    </span>
-                                                    <span className={`block text-[9px] uppercase tracking-wide ${selectedWormIndex === idx ? 'text-white/80 dark:text-forest-900/80' : 'text-forest-500 dark:text-forest-400'}`}>
-                                                        {format.sub}
-                                                    </span>
-                                                </button>
-                                            ))}
-                                        </div>
+                                {/* Pricing Selector Section */}
+                                <div className="mb-6 md:mb-8 p-4 bg-forest-800/50 rounded-sm border border-forest-700/50 backdrop-blur-sm">
+                                    <div className="flex justify-between items-center mb-4">
+                                        <h4 className="text-gold-400 text-[10px] uppercase tracking-widest font-bold">Selecciona Formato</h4>
+                                        <span className="text-gray-400 text-[10px] uppercase tracking-wider">{wormFormats[selectedWormIndex].unitPrice}</span>
                                     </div>
 
-                                    {/* Ideal Para */}
-                                    <div className="bg-forest-50 dark:bg-forest-900/50 p-3 rounded border border-forest-100 dark:border-forest-700 h-full flex flex-col justify-center text-left">
-                                        <h4 className="text-gold-600 dark:text-gold-400 text-[10px] uppercase tracking-widest font-bold mb-3">Ideal Para</h4>
-                                        <ul className="space-y-2 w-full">
-                                            <li className="flex items-start gap-3 w-full">
-                                                <div className="w-5 h-5 flex justify-center items-center flex-shrink-0 mt-0.5">
-                                                    <span className="material-icons text-gold-500 text-sm">local_florist</span>
-                                                </div>
-                                                <span className="text-xs text-forest-800 dark:text-forest-100 leading-tight">Huertos y jardines</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 w-full">
-                                                <div className="w-5 h-5 flex justify-center items-center flex-shrink-0 mt-0.5">
-                                                    <span className="material-icons text-gold-500 text-sm">home</span>
-                                                </div>
-                                                <span className="text-xs text-forest-800 dark:text-forest-100 leading-tight">Compostaje domiciliario</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 w-full">
-                                                <div className="w-5 h-5 flex justify-center items-center flex-shrink-0 mt-0.5">
-                                                    <span className="material-icons text-gold-500 text-sm">school</span>
-                                                </div>
-                                                <span className="text-xs text-forest-800 dark:text-forest-100 leading-tight">Proyectos educativos</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 w-full">
-                                                <div className="w-5 h-5 flex justify-center items-center flex-shrink-0 mt-0.5">
-                                                    <span className="material-icons text-gold-500 text-sm">spa</span>
-                                                </div>
-                                                <span className="text-xs text-forest-800 dark:text-forest-100 leading-tight">Emprendimientos</span>
-                                            </li>
-                                        </ul>
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+                                        {wormFormats.map((format, idx) => (
+                                            <button
+                                                key={format.id}
+                                                onClick={() => setSelectedWormIndex(idx)}
+                                                className={`p-2 rounded-sm text-center transition-all duration-300 border flex flex-col items-center justify-center min-h-[60px] md:h-16 ${selectedWormIndex === idx
+                                                        ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
+                                                        : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
+                                                    }`}
+                                            >
+                                                <span className={`block font-bold text-base md:text-lg leading-none ${selectedWormIndex === idx ? 'text-forest-900' : 'text-white'}`}>
+                                                    {format.label}
+                                                </span>
+                                                <span className={`block text-[8px] md:text-[9px] uppercase tracking-wide mt-1 ${selectedWormIndex === idx ? 'text-forest-900/80' : 'text-gray-400'}`}>
+                                                    {format.sub}
+                                                </span>
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex justify-between items-end border-t border-forest-700 pt-3">
+                                        <span className="text-gray-400 text-xs font-light">Precio Final</span>
+                                        <span className="text-xl md:text-2xl font-display text-white">{wormFormats[selectedWormIndex].price}</span>
                                     </div>
                                 </div>
 
                                 <div className="flex flex-wrap gap-4 mt-auto">
-                                    <Link to="/contacto" className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-3 px-6 transition-all duration-300 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group/btn border-t border-forest-900 shadow-md">
+                                    <Link to="/contacto" className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-3 md:py-4 px-6 transition-all duration-300 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group/btn shadow-lg rounded-sm">
                                         Quiero comenzar mi compostaje
                                         <span className="material-icons text-base group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                                     </Link>

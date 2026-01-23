@@ -87,8 +87,8 @@ const Home: React.FC = () => {
                                         <span className="font-medium tracking-wide uppercase text-xs">Envíos seguros a todo Chile</span>
                                     </li>
                                 </ul>
-                                <Link to="/productos#lombrices" className="inline-flex items-center text-gold-600 dark:text-gold-500 hover:text-forest-900 dark:hover:text-white transition-colors uppercase text-xs font-bold tracking-[0.2em] gap-3 group/link">
-                                    ADQUIRIR NUCLEO <span className="material-icons text-sm group-hover/link:translate-x-1 transition-transform">east</span>
+                                <Link to="/productos#lombrices" className="bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-4 px-8 rounded-sm inline-flex items-center gap-2 uppercase text-xs tracking-widest transition-all duration-300 w-fit group/link">
+                                    ADQUIRIR NUCLEO <span className="material-icons text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
                                 </Link>
                             </div>
                         </div>
@@ -127,8 +127,8 @@ const Home: React.FC = () => {
                                         <span className="font-medium tracking-wide uppercase text-xs">Envíos a Todo Chile</span>
                                     </li>
                                 </ul>
-                                <Link to="/productos#mosca" className="inline-flex items-center text-gold-600 dark:text-gold-500 hover:text-forest-900 dark:hover:text-white transition-colors uppercase text-xs font-bold tracking-[0.2em] gap-3 group/link">
-                                    ADQUIERE TU NUCLEO <span className="material-icons text-sm group-hover/link:translate-x-1 transition-transform">east</span>
+                                <Link to="/productos#mosca" className="bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-4 px-8 rounded-sm inline-flex items-center gap-2 uppercase text-xs tracking-widest transition-all duration-300 w-fit group/link">
+                                    ADQUIERE TU NUCLEO <span className="material-icons text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
                                 </Link>
                             </div>
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group order-1 lg:order-2">

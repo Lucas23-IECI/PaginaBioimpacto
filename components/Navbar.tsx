@@ -184,7 +184,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                             type="button"
                             aria-label="Toggle Theme"
                         >
-                            <span className="material-symbols-outlined text-xl align-middle">
+                            <span className="material-icons text-xl align-middle">
                                 {theme === 'dark' ? 'light_mode' : 'dark_mode'}
                             </span>
                         </button>
@@ -197,7 +197,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                             className={`transition-colors p-1 ${textColorClass}`} 
                             type="button"
                         >
-                            <span className="material-symbols-outlined text-xl align-middle">
+                            <span className="material-icons text-xl align-middle">
                                 {theme === 'dark' ? 'light_mode' : 'dark_mode'}
                             </span>
                         </button>

@@ -79,12 +79,11 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
                             <div className="w-[70%] h-[70%] bg-white/60 dark:bg-white/5 rounded-full blur-3xl transform"></div>
                         </div>
 
-                        <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
+                        <div className="relative z-10 w-full h-full flex items-center justify-center">
                             <img
                                 src={img.src}
                                 alt={img.label}
-                                className={`max-w-full max-h-full object-contain drop-shadow-2xl transition-transform duration-700 ease-out group-hover:scale-105 ${img.className || ''}`}
-                                style={{ maxHeight: '400px' }}
+                                className={`max-w-[90%] max-h-[80%] object-contain drop-shadow-2xl transition-transform duration-700 ease-out group-hover:scale-105 ${img.className || ''}`}
                             />
                         </div>
                     </div>
@@ -155,7 +154,7 @@ const Products: React.FC = () => {
     ];
 
     return (
-        <div className="pt-20 bg-forest-50 dark:bg-forest-900 transition-colors duration-300">
+        <div className="pt-20 bg-forest-50 dark:bg-forest-900 transition-colors duration-300 min-h-screen">
             <header className="relative py-16 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
@@ -179,17 +178,17 @@ const Products: React.FC = () => {
 
             <section className="relative z-10 pb-16">
                 {/* Product 1: Lombriz */}
-                <div id="lombrices" className="container mx-auto px-4 lg:px-4 mb-16 max-w-7xl scroll-mt-32">
+                <div id="lombrices" className="container mx-auto px-4 mb-16 max-w-7xl scroll-mt-32">
                     <ScrollReveal>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300 min-h-[400px] md:min-h-[500px]">
-                            <div className="h-full">
+                        <div className="flex flex-col lg:flex-row shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300 min-h-[400px] md:min-h-[500px]">
+                            <div className="lg:w-1/2 h-full">
                                 <ProductCarousel
                                     images={wormImages}
                                     activeIndex={selectedWormIndex}
                                     onIndexChange={setSelectedWormIndex}
                                 />
                             </div>
-                            <div className="bg-white dark:bg-forest-800 p-6 md:p-8 flex flex-col justify-center border-l border-gold-400/30 relative overflow-hidden transition-colors duration-300 h-full">
+                            <div className="lg:w-1/2 bg-white dark:bg-forest-800 p-6 md:p-8 flex flex-col justify-center border-l border-gold-400/30 relative overflow-hidden transition-colors duration-300 h-full">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 dark:bg-gold-400/5 rounded-full blur-3xl"></div>
                                 <span className="text-gold-600 dark:text-gold-400 text-xs uppercase tracking-[0.25em] mb-2 font-bold flex items-center gap-2">
                                     <span className="w-6 h-[1px] bg-gold-400"></span> Eisenia foetida
@@ -214,8 +213,8 @@ const Products: React.FC = () => {
                                                     key={format.id}
                                                     onClick={() => setSelectedWormIndex(idx)}
                                                     className={`p-1.5 rounded-sm text-center transition-all duration-300 border ${selectedWormIndex === idx
-                                                            ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
-                                                            : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
+                                                        ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
+                                                        : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
                                                         }`}
                                                 >
                                                     <span className={`block font-bold text-sm ${selectedWormIndex === idx ? 'text-white dark:text-forest-900' : 'text-forest-900 dark:text-white'}`}>
@@ -272,13 +271,13 @@ const Products: React.FC = () => {
                     </ScrollReveal>
                 </div>
 
-                {/* Product 2: Mosca Soldado - Updated Content & Pricing */}
-                <div id="mosca" className="container mx-auto px-4 lg:px-4 mb-16 max-w-7xl scroll-mt-32">
+                {/* Product 2: Mosca Soldado */}
+                <div id="mosca" className="container mx-auto px-4 mb-16 max-w-7xl scroll-mt-32">
                     <ScrollReveal>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300 min-h-[400px] md:min-h-[500px]">
+                        <div className="flex flex-col lg:flex-row-reverse shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300 min-h-[400px] md:min-h-[500px]">
 
-                            {/* Text Column (Left) - Dark Themed: Forest 900 */}
-                            <div className="bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center lg:order-1 order-2 relative overflow-hidden h-full">
+                            {/* Text Column (Right) - Dark Themed: Forest 900 */}
+                            <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden h-full">
                                 {/* Decorative Blur */}
                                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold-400/5 rounded-full blur-3xl"></div>
 
@@ -293,7 +292,7 @@ const Products: React.FC = () => {
                                     Núcleos seleccionados y listos para trabajar, permitiendo una gestión controlada, segura y sin olores.
                                 </p>
 
-                                {/* Pricing Selector Section (Replacing Cards) */}
+                                {/* Pricing Selector Section */}
                                 <div className="mb-6 md:mb-8 p-4 bg-forest-800/50 rounded-sm border border-forest-700/50 backdrop-blur-sm">
                                     <div className="flex justify-between items-center mb-4">
                                         <h4 className="text-gold-400 text-[10px] uppercase tracking-widest font-bold">Selecciona Cantidad</h4>
@@ -306,8 +305,8 @@ const Products: React.FC = () => {
                                                 key={format.id}
                                                 onClick={() => setSelectedBSFIndex(idx)}
                                                 className={`p-2 rounded-sm text-center transition-all duration-300 border flex flex-col items-center justify-center min-h-[60px] md:h-16 ${selectedBSFIndex === idx
-                                                        ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
-                                                        : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
+                                                    ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
+                                                    : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
                                                     }`}
                                             >
                                                 <span className={`block font-bold text-base md:text-lg leading-none ${selectedBSFIndex === idx ? 'text-forest-900' : 'text-white'}`}>
@@ -334,8 +333,8 @@ const Products: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Image Column (Right) */}
-                            <div className="lg:order-2 order-1 h-full">
+                            {/* Image Column (Left) */}
+                            <div className="lg:w-1/2 h-full">
                                 <ProductCarousel
                                     images={bsfImages}
                                     activeIndex={selectedBSFIndex}
@@ -346,22 +345,22 @@ const Products: React.FC = () => {
                     </ScrollReveal>
                 </div>
 
-                {/* Services Section - Updated to "Asesoría Técnica y Consultoría en Bioconversión" with Dark Card Style */}
-                <div id="consultoria" className="container mx-auto px-4 lg:px-4 max-w-7xl scroll-mt-32">
+                {/* Services Section - Asesoría Técnica */}
+                <div id="consultoria" className="container mx-auto px-4 max-w-7xl scroll-mt-32">
                     <ScrollReveal>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl shadow-black/40 rounded-sm overflow-hidden border border-forest-800">
+                        <div className="flex flex-col lg:flex-row shadow-2xl shadow-black/40 rounded-sm overflow-hidden border border-forest-800 min-h-[400px] md:min-h-[500px]">
                             {/* Left Image Side */}
-                            <div className="relative min-h-[300px] md:min-h-[400px] lg:h-auto overflow-hidden group">
+                            <div className="lg:w-1/2 relative overflow-hidden group">
                                 <img
                                     alt="Instalaciones de Bioconversión Industrial"
-                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-75"
+                                    className="w-full h-full min-h-[300px] object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-75"
                                     src="https://images.unsplash.com/photo-1599587440402-23c2a6883210?q=80&w=2070&auto=format&fit=crop"
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>
 
                             {/* Right Content Side - Dark Theme Always */}
-                            <div className="bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                            <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                                 {/* Decorative Glow */}
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold-400/5 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -375,7 +374,7 @@ const Products: React.FC = () => {
                                     Analizamos tu contexto, diseñamos el sistema adecuado y te acompañamos en la implementación para que puedas generar un nuevo ingreso a partir de un residuo que hoy no tiene valor.
                                 </p>
 
-                                {/* Highlights Grid (Gold Border Boxes) */}
+                                {/* Highlights Grid */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 md:mb-8 relative z-10">
                                     <div className="p-4 md:p-5 border border-gold-400/30 rounded-sm bg-forest-800/50 hover:border-gold-400 transition-colors">
                                         <div className="text-gold-400 mb-2"><span className="material-icons">trending_up</span></div>

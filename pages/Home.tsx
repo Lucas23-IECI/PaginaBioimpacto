@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-xl rounded-sm overflow-hidden border border-forest-200 dark:border-white/5">
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group">
                                 <img
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEGo_S8arvz_R_6qEgJfoMD4PjRIMzL2-9n1WDz_tYzN39z1P5hkVb8f_yNkmSsbYJgZwBoMzWv6aKcJcOA86l9dLJ4hfIHZuMzmUwAiFhKtWrAcYoZl4j9y-2wFeVOwo4_86DyLdG1uU8mBrfYln3ZRemsd2Teb-LF5wewMGg_LAtvHEhk_5Ip2XRXuQR7BwJYBZ3BccyPQPyPqnLALwNC6-u4vYU_CV_NGTwbXOf0m4pEyrVNKWBMgbbIWWzq_JH1eBxZgkYi5Gh"
+                                    src="/Fotos/Home/NucleosDeLombriz/NucleoLombriz.png"
                                     alt="Lombrices Californianas en sustrato"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                                 />
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
                             </div>
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group order-1 lg:order-2">
                                 <img
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK0_TulWvmpPtLOYQEqwA187vMxt9PJ3i_0bYDsVsuizRFYfz9G5S6ZAnBhkIGtPyT7FJBcNhf7BqUO2R7kp09TAECS_kew8NypA8IWKyLPeZU5XHfQK7vIkQB_2FyaGgljDeg1IgiFOIjRg0nsUukCkiVaxLi02niqIEvHlQ1NXTtgIJI85E8t8cAc9Nd5v8H_rIO4YrLc-pH622pgE0WfVJnSD8bFIfUa8_jLxQvqqeoPxwUXSXDIRsJ0UYyRr9QZCzFsF8LMGmC"
+                                    src="/Fotos/Home/NucleosDeLarvas/NucleosLarvas.png"
                                     alt="Larvas de Mosca Soldado Negra"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter hover:contrast-110 opacity-90 group-hover:opacity-100"
                                 />
@@ -146,7 +146,7 @@ const Home: React.FC = () => {
                     {/* Left Image Side */}
                     <div className="relative min-h-[500px] lg:min-h-[900px]">
                         <img
-                            src="https://images.unsplash.com/photo-1599587440402-23c2a6883210?q=80&w=2070&auto=format&fit=crop"
+                            src="/Fotos/Home/AsesoriaTecnica/AsesoriaFoto.png"
                             alt="Invernadero y estructura verde"
                             className="absolute inset-0 w-full h-full object-cover opacity-80"
                         />

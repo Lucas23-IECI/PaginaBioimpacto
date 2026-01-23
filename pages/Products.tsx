@@ -65,24 +65,24 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
     };
 
     return (
-        <div className="relative flex-1 overflow-hidden w-full h-full min-h-[500px] lg:h-auto group bg-forest-50 dark:bg-forest-900 transition-colors duration-300">
+        <div className="relative w-full h-full min-h-[500px] group bg-forest-50 dark:bg-forest-900 transition-colors duration-300 overflow-hidden">
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
                 className="flex w-full h-full overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth"
             >
                 {images.map((img, idx) => (
-                    <div key={idx} className="min-w-full h-full snap-center relative shrink-0 flex items-center justify-center p-8 lg:p-12">
+                    <div key={idx} className="min-w-full h-full snap-center relative shrink-0 flex items-center justify-center p-8 lg:p-16">
                         {/* Decorative background circle behind product */}
                         <div className="absolute inset-0 bg-forest-100/50 dark:bg-forest-800/50 z-0"></div>
                         <div className="absolute inset-0 flex items-center justify-center z-0">
-                            <div className="w-[80%] h-[80%] bg-white/50 dark:bg-white/5 rounded-full blur-3xl transform scale-75"></div>
+                            <div className="w-[70%] h-[70%] bg-white/60 dark:bg-white/5 rounded-full blur-3xl transform"></div>
                         </div>
 
                         <img
                             src={img.src}
                             alt={img.label}
-                            className={`relative z-10 max-w-full max-h-full object-contain drop-shadow-2xl transition-transform duration-700 ease-out group-hover:scale-105 ${img.className || ''}`}
+                            className={`relative z-10 w-full h-full object-contain drop-shadow-2xl transition-transform duration-700 ease-out group-hover:scale-105 ${img.className || ''}`}
                         />
                     </div>
                 ))}
@@ -178,7 +178,7 @@ const Products: React.FC = () => {
                 {/* Product 1: Lombriz */}
                 <div id="lombrices" className="container mx-auto px-0 lg:px-4 mb-16 max-w-7xl scroll-mt-32">
                     <ScrollReveal>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300 items-stretch">
                             <ProductCarousel
                                 images={wormImages}
                                 activeIndex={selectedWormIndex}
@@ -270,7 +270,7 @@ const Products: React.FC = () => {
                 {/* Product 2: Mosca Soldado - Updated Content & Pricing */}
                 <div id="mosca" className="container mx-auto px-0 lg:px-4 mb-32 max-w-7xl scroll-mt-32">
                     <ScrollReveal>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300 items-stretch">
 
                             {/* Text Column (Left) - Dark Themed: Forest 900 */}
                             <div className="bg-forest-900 p-8 md:p-12 lg:p-16 flex flex-col justify-center order-2 lg:order-1 relative overflow-hidden">

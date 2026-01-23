@@ -145,16 +145,18 @@ const Products: React.FC = () => {
     ];
 
     return (
-        <div className="pt-20 bg-forest-50 dark:bg-forest-900 transition-colors duration-300 min-h-screen">
-            <header className="relative py-16 lg:py-32 overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <img
-                        alt="Fondo oscuro textura"
-                        className="w-full h-full object-cover opacity-10 dark:opacity-20 mix-blend-multiply dark:mix-blend-overlay transition-opacity duration-300"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK8LTGM0Iw1obqL-6byZ1tEdMqmWNamvV68m5qTT4A3smE_xtqQ0D_u5p3BCAYmTuuR8caEtSi-vr7-UXZxFY_ulxIA8I10RaN8CFkTxiOViToeBO8NeSfE-fWAqWlz0Mp70-LaQCxSrc-mknxtOn2sEmktFPg0K9BTiEphYJMt1HOZdowrSQifCnQU9na4sJGg3PMZTYn9xXkU03VnzMKfY7bUv5O06Ke0jOFjJHeBLm8oxQ_sxjGWqPJWhCcczRjB4l4Y42aY8M8"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-forest-50 via-forest-50/90 to-forest-50 dark:from-forest-900 dark:via-forest-900/90 dark:to-forest-900 transition-colors duration-300"></div>
-                </div>
+        <div className="pt-20 bg-forest-50 dark:bg-forest-900 transition-colors duration-300 min-h-screen relative">
+            {/* Background Image para toda la página */}
+            <div className="fixed inset-0 z-0 overflow-hidden">
+                <img
+                    alt="Textura orgánica bioconversión"
+                    className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
+                    src="/Fotos/Background/BackgroundProductos.jpg"
+                />
+            </div>
+
+            <header className="relative py-16 lg:py-32 overflow-hidden z-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-forest-50/50 via-forest-50/30 to-transparent dark:from-forest-900/50 dark:via-forest-900/30 dark:to-transparent transition-colors duration-300"></div>
                 <ScrollReveal className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <span className="block text-gold-600 dark:text-gold-400 uppercase tracking-[0.3em] text-xs font-bold mb-6 animate-fade-in transition-colors duration-300">Catálogo 2026</span>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-forest-900 dark:text-white leading-tight mb-6 drop-shadow-lg transition-colors duration-300">

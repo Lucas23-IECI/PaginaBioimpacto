@@ -269,18 +269,24 @@ const Testimonials: React.FC = () => {
     };
 
     return (
-        <div className="bg-forest-50 dark:bg-forest-900 min-h-screen text-forest-900 dark:text-cream transition-colors duration-300">
+        <div className="bg-forest-50 dark:bg-forest-900 min-h-screen text-forest-900 dark:text-cream transition-colors duration-300 relative">
+            {/* Background Image para toda la página */}
+            <div className="fixed inset-0 z-0 overflow-hidden">
+                <img
+                    alt="Textura orgánica testimonios"
+                    className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
+                    src="/Fotos/Background/BackgroundTestimonios2.jpg"
+                />
+            </div>
+
             <Toast
                 isVisible={toast.show}
                 message={toast.message}
                 onClose={() => setToast({ ...toast, show: false })}
             />
 
-            <header className="relative min-h-[60vh] flex items-center justify-center parallax-bg pt-20" style={{
-                backgroundImage: "url('/Fotos/Background/BackgroundTestimonios.jpg')"
-            }}>
-                <div className="absolute inset-0 bg-forest-100/70 dark:bg-forest-900/70 transition-colors duration-300"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-50 via-forest-50/30 to-transparent dark:from-forest-900 dark:via-forest-900/30 dark:to-transparent transition-colors duration-300"></div>
+            <header className="relative min-h-[60vh] flex items-center justify-center pt-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-forest-50/30 to-forest-50/50 dark:from-transparent dark:via-forest-900/30 dark:to-forest-900/50 transition-colors duration-300"></div>
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <ScrollReveal>
                         <div className="glass-panel p-10 md:p-12 rounded-sm max-w-4xl mx-auto bg-white/60 dark:bg-forest-900/60">
@@ -296,7 +302,7 @@ const Testimonials: React.FC = () => {
                 </div>
             </header>
 
-            <section className="bg-forest-50 dark:bg-forest-900 py-24 relative transition-colors duration-300">
+            <section className="py-24 relative z-10 transition-colors duration-300">
                 <div className="container mx-auto px-4 max-w-7xl">
                     <div className="mb-20">
                         <ScrollReveal>

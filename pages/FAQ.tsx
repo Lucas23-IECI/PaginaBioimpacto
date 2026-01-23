@@ -33,9 +33,18 @@ const FAQ: React.FC = () => {
     const whatsappLink = SOCIAL_LINKS.find(l => l.name === 'WhatsApp')?.url || "#";
 
     return (
-        <div className="bg-forest-50 dark:bg-forest-900 min-h-screen transition-colors duration-300">
+        <div className="bg-forest-50 dark:bg-forest-900 min-h-screen transition-colors duration-300 relative">
+            {/* Background Image para toda la página */}
+            <div className="fixed inset-0 z-0 overflow-hidden">
+                <img
+                    alt="Textura orgánica FAQ"
+                    className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
+                    src="/Fotos/Background/BackgroundFaq.jpg"
+                />
+            </div>
+
             {/* Header Section */}
-            <div className="pt-32 pb-16 bg-white dark:bg-forest-800 relative overflow-hidden border-b border-forest-100 dark:border-forest-700 transition-colors duration-300">
+            <div className="pt-32 pb-16 relative z-10 overflow-hidden transition-colors duration-300">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold-400/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-forest-100 dark:bg-forest-900/40 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none transition-colors duration-300"></div>
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -49,7 +58,7 @@ const FAQ: React.FC = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
                     {/* FAQ Content - Left Column */}
                     <div className="lg:col-span-8 space-y-16">

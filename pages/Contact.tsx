@@ -59,7 +59,16 @@ Enviado desde el formulario web de BioImpacto.`;
 
     return (
         <div className="pt-32 min-h-screen relative bg-forest-50 dark:bg-forest-900 transition-colors duration-300">
-             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center">
+            {/* Background Image para toda la página */}
+            <div className="fixed inset-0 z-0 overflow-hidden">
+                <img
+                    alt="Textura orgánica Contacto"
+                    className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
+                    src="/Fotos/Background/BackgroundContacto.jpg"
+                />
+            </div>
+
+             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center relative z-10">
                 <span className="text-gold-600 dark:text-gold-400 uppercase tracking-[0.3em] text-xs font-bold mb-6 block animate-pulse">Inicia la transformación</span>
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-forest-900 dark:text-white leading-[0.95] mb-8 drop-shadow-sm transition-colors duration-300">
                     Hablemos de <br/><span className="text-gold-500 relative inline-block">tu Proyecto</span>
@@ -69,7 +78,7 @@ Enviado desde el formulario web de BioImpacto.`;
                 </p>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
                     {/* Contact Form */}
                     <div className="lg:col-span-7 order-2 lg:order-1">

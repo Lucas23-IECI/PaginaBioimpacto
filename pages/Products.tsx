@@ -65,7 +65,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
     };
 
     return (
-        <div className="relative flex-1 overflow-hidden w-full h-full min-h-[400px] lg:h-auto group bg-forest-100 dark:bg-forest-900 transition-colors duration-300">
+        <div className="relative flex-1 overflow-hidden w-full h-full min-h-[500px] lg:h-auto group bg-forest-100 dark:bg-forest-900 transition-colors duration-300">
             <div
                 ref={scrollRef}
                 onScroll={handleScroll}
@@ -76,7 +76,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
                         <img
                             src={img.src}
                             alt={img.label}
-                            className={`w-full h-full object-contain ${img.className || ''}`}
+                            className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100 ${img.className || ''}`}
                         />
                         {/* Gradient overlay only for mobile to help text readability if needed */}
                         <div className="absolute inset-0 bg-gradient-to-r from-forest-900/40 to-transparent lg:hidden pointer-events-none"></div>
@@ -345,7 +345,7 @@ const Products: React.FC = () => {
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group">
                                 <img
                                     alt="Instalaciones de Bioconversión Industrial"
-                                    className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                                     src="/Fotos/Productos/AsesoriaTecnica/AsesoriaTec.jpg"
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>

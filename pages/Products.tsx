@@ -141,10 +141,10 @@ const Products: React.FC = () => {
 
     // UPDATED BSF Images: 4 Images mapped to the 4 formats
     const bsfImages = [
-        { src: "https://images.unsplash.com/photo-1596464878233-02f89f5bc79c?q=80&w=800&auto=format&fit=crop", label: "25 Unidades - Inicial" },
-        { src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBK0_TulWvmpPtLOYQEqwA187vMxt9PJ3i_0bYDsVsuizRFYfz9G5S6ZAnBhkIGtPyT7FJBcNhf7BqUO2R7kp09TAECS_kew8NypA8IWKyLPeZU5XHfQK7vIkQB_2FyaGgljDeg1IgiFOIjRg0nsUukCkiVaxLi02niqIEvHlQ1NXTtgIJI85E8t8cAc9Nd5v8H_rIO4YrLc-pH622pgE0WfVJnSD8bFIfUa8_jLxQvqqeoPxwUXSXDIRsJ0UYyRr9QZCzFsF8LMGmC", label: "50 Unidades - Núcleo" },
-        { src: "https://images.unsplash.com/photo-1533241240368-197e4165d496?q=80&w=800&auto=format&fit=crop", label: "100 Unidades - Avanzado", className: "filter sepia-[.2]" },
-        { src: "https://images.unsplash.com/photo-1589923188900-85dae523342b?q=80&w=800&auto=format&fit=crop", label: "250 Unidades - Experto", className: "filter contrast-110 brightness-90" }
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/25.png", label: "25 Unidades - Inicial" },
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/50.png", label: "50 Unidades - Núcleo" },
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/100.png", label: "100 Unidades - Avanzado" },
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/250.png", label: "250 Unidades - Experto" }
     ];
 
     return (
@@ -205,8 +205,8 @@ const Products: React.FC = () => {
                                                     key={format.id}
                                                     onClick={() => setSelectedWormIndex(idx)}
                                                     className={`p-1.5 rounded-sm text-center transition-all duration-300 border ${selectedWormIndex === idx
-                                                            ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
-                                                            : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
+                                                        ? 'bg-forest-900 dark:bg-gold-400 border-forest-900 dark:border-gold-400 shadow-md transform -translate-y-0.5'
+                                                        : 'bg-forest-50 dark:bg-forest-900/50 border-forest-200 dark:border-forest-700 hover:border-gold-400/50'
                                                         }`}
                                                 >
                                                     <span className={`block font-bold text-sm ${selectedWormIndex === idx ? 'text-white dark:text-forest-900' : 'text-forest-900 dark:text-white'}`}>
@@ -297,8 +297,8 @@ const Products: React.FC = () => {
                                                 key={format.id}
                                                 onClick={() => setSelectedBSFIndex(idx)}
                                                 className={`p-2 rounded-sm text-center transition-all duration-300 border flex flex-col items-center justify-center h-16 ${selectedBSFIndex === idx
-                                                        ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
-                                                        : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
+                                                    ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
+                                                    : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
                                                     }`}
                                             >
                                                 <span className={`block font-bold text-lg leading-none ${selectedBSFIndex === idx ? 'text-forest-900' : 'text-white'}`}>
@@ -346,7 +346,7 @@ const Products: React.FC = () => {
                                 <img
                                     alt="Instalaciones de Bioconversión Industrial"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-75"
-                                    src="https://images.unsplash.com/photo-1599587440402-23c2a6883210?q=80&w=2070&auto=format&fit=crop"
+                                    src="/Fotos/Productos/AsesoriaTecnica/FOTO%20ASESORIA.png"
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>

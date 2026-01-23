@@ -5,8 +5,8 @@ import ScrollReveal from '../components/ScrollReveal';
 const Home: React.FC = () => {
     return (
         <div className="relative">
-            <header className="relative min-h-screen flex items-center justify-center pt-20" style={{ 
-                backgroundImage: `url('https://picsum.photos/seed/bioimpacto1/1920/1080')`,
+            <header className="relative min-h-screen flex items-center justify-center pt-20" style={{
+                backgroundImage: `url('/Fotos/Background/BackgroundHero.jpg')`,
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
                 {/* Overlay: Lighter for Light Mode, Darker for Dark Mode */}
                 <div className="absolute inset-0 bg-forest-100/40 dark:bg-forest-900/60 backdrop-blur-[1px] transition-colors duration-300"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-50 via-forest-50/20 to-transparent dark:from-forest-900 dark:via-forest-900/40 dark:to-transparent transition-colors duration-300"></div>
-                
+
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <ScrollReveal>
                         <div className="glass-panel p-10 md:p-16 rounded-sm max-w-4xl mx-auto">
@@ -46,16 +46,16 @@ const Home: React.FC = () => {
                     <h2 className="text-4xl md:text-6xl font-display text-forest-900 dark:text-white mb-8 transition-colors duration-300">Soluciones de Bioconversión</h2>
                     <div className="w-24 h-1 bg-gold-400 mx-auto"></div>
                 </ScrollReveal>
-                
+
                 {/* Worms Section */}
                 <div className="container mx-auto px-0 lg:px-4 mb-32 max-w-7xl">
                     <ScrollReveal>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-xl rounded-sm overflow-hidden border border-forest-200 dark:border-white/5">
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group">
-                                <img 
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEGo_S8arvz_R_6qEgJfoMD4PjRIMzL2-9n1WDz_tYzN39z1P5hkVb8f_yNkmSsbYJgZwBoMzWv6aKcJcOA86l9dLJ4hfIHZuMzmUwAiFhKtWrAcYoZl4j9y-2wFeVOwo4_86DyLdG1uU8mBrfYln3ZRemsd2Teb-LF5wewMGg_LAtvHEhk_5Ip2XRXuQR7BwJYBZ3BccyPQPyPqnLALwNC6-u4vYU_CV_NGTwbXOf0m4pEyrVNKWBMgbbIWWzq_JH1eBxZgkYi5Gh" 
-                                    alt="Lombrices Californianas en sustrato" 
-                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEGo_S8arvz_R_6qEgJfoMD4PjRIMzL2-9n1WDz_tYzN39z1P5hkVb8f_yNkmSsbYJgZwBoMzWv6aKcJcOA86l9dLJ4hfIHZuMzmUwAiFhKtWrAcYoZl4j9y-2wFeVOwo4_86DyLdG1uU8mBrfYln3ZRemsd2Teb-LF5wewMGg_LAtvHEhk_5Ip2XRXuQR7BwJYBZ3BccyPQPyPqnLALwNC6-u4vYU_CV_NGTwbXOf0m4pEyrVNKWBMgbbIWWzq_JH1eBxZgkYi5Gh"
+                                    alt="Lombrices Californianas en sustrato"
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>
@@ -128,10 +128,10 @@ const Home: React.FC = () => {
                                 </Link>
                             </div>
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group order-1 lg:order-2">
-                                <img 
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK0_TulWvmpPtLOYQEqwA187vMxt9PJ3i_0bYDsVsuizRFYfz9G5S6ZAnBhkIGtPyT7FJBcNhf7BqUO2R7kp09TAECS_kew8NypA8IWKyLPeZU5XHfQK7vIkQB_2FyaGgljDeg1IgiFOIjRg0nsUukCkiVaxLi02niqIEvHlQ1NXTtgIJI85E8t8cAc9Nd5v8H_rIO4YrLc-pH622pgE0WfVJnSD8bFIfUa8_jLxQvqqeoPxwUXSXDIRsJ0UYyRr9QZCzFsF8LMGmC" 
-                                    alt="Larvas de Mosca Soldado Negra" 
-                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter hover:contrast-110 opacity-90 group-hover:opacity-100" 
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK0_TulWvmpPtLOYQEqwA187vMxt9PJ3i_0bYDsVsuizRFYfz9G5S6ZAnBhkIGtPyT7FJBcNhf7BqUO2R7kp09TAECS_kew8NypA8IWKyLPeZU5XHfQK7vIkQB_2FyaGgljDeg1IgiFOIjRg0nsUukCkiVaxLi02niqIEvHlQ1NXTtgIJI85E8t8cAc9Nd5v8H_rIO4YrLc-pH622pgE0WfVJnSD8bFIfUa8_jLxQvqqeoPxwUXSXDIRsJ0UYyRr9QZCzFsF8LMGmC"
+                                    alt="Larvas de Mosca Soldado Negra"
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter hover:contrast-110 opacity-90 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>
@@ -145,10 +145,10 @@ const Home: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Left Image Side */}
                     <div className="relative min-h-[500px] lg:min-h-[900px]">
-                        <img 
-                            src="https://images.unsplash.com/photo-1599587440402-23c2a6883210?q=80&w=2070&auto=format&fit=crop" 
-                            alt="Invernadero y estructura verde" 
-                            className="absolute inset-0 w-full h-full object-cover opacity-80" 
+                        <img
+                            src="https://images.unsplash.com/photo-1599587440402-23c2a6883210?q=80&w=2070&auto=format&fit=crop"
+                            alt="Invernadero y estructura verde"
+                            className="absolute inset-0 w-full h-full object-cover opacity-80"
                         />
                         <div className="absolute inset-0 bg-forest-900/20"></div>
                         {/* Gold vertical line separator on right edge */}
@@ -243,9 +243,9 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-             <section className="relative py-40" style={{ 
-                backgroundImage: `url('https://picsum.photos/seed/origin/1920/1080')`,
-                 backgroundAttachment: 'fixed',
+            <section className="relative py-40" style={{
+                backgroundImage: `url('/Fotos/Background/BackgroundOrigen.jpg')`,
+                backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover'

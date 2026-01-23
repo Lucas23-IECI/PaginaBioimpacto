@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-xl rounded-sm overflow-hidden border border-forest-200 dark:border-white/5">
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group">
                                 <img
-                                    src="/Fotos/Home/NucleosDeLombriz/NucleoLombriz.png"
+                                    src="/Fotos/Home/NucleoLombriz.png"
                                     alt="Lombrices Californianas en sustrato"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                                 />
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
                             </div>
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group order-1 lg:order-2">
                                 <img
-                                    src="/Fotos/Home/NucleosDeLarvas/NucleosLarvas.png"
+                                    src="/Fotos/Home/NucleosLarvas.png"
                                     alt="Larvas de Mosca Soldado Negra"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter hover:contrast-110 opacity-90 group-hover:opacity-100"
                                 />
@@ -146,7 +146,7 @@ const Home: React.FC = () => {
                     {/* Left Image Side */}
                     <div className="relative min-h-[500px] lg:min-h-[900px]">
                         <img
-                            src="/Fotos/Home/AsesoriaTecnica/AsesoriaFoto.png"
+                            src="/Fotos/Home/AsesoriaFoto.png"
                             alt="Invernadero y estructura verde"
                             className="absolute inset-0 w-full h-full object-cover opacity-80"
                         />

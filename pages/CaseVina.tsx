@@ -12,6 +12,8 @@ const CaseVina: React.FC = () => {
                         src="https://images.unsplash.com/photo-1615811361269-66924b123681?q=80&w=1920&auto=format&fit=crop" 
                         alt="Agroindustria y Frutas" 
                         className="w-full h-full object-cover filter brightness-[0.4]"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-transparent to-transparent"></div>
                 </div>
@@ -82,7 +84,7 @@ const CaseVina: React.FC = () => {
                         {/* Process Step 1 */}
                         <ScrollReveal className="flex flex-col md:flex-row gap-6 items-start">
                              <div className="w-full md:w-1/2 rounded-sm overflow-hidden shadow-lg h-64">
-                                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800&auto=format&fit=crop" alt="Residuos Frutícolas" className="w-full h-full object-cover" />
+                                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800&auto=format&fit=crop" alt="Residuos Frutícolas" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                              </div>
                              <div className="w-full md:w-1/2">
                                 <span className="text-gold-500 font-display text-5xl opacity-50 absolute -mt-8 -ml-4 z-0">01</span>
@@ -96,7 +98,7 @@ const CaseVina: React.FC = () => {
                         {/* Process Step 2 */}
                         <ScrollReveal className="flex flex-col md:flex-row gap-6 items-start">
                              <div className="w-full md:w-1/2 order-1 md:order-2 rounded-sm overflow-hidden shadow-lg h-64">
-                                <img src="https://images.unsplash.com/photo-1596464878233-02f89f5bc79c?q=80&w=800&auto=format&fit=crop" alt="Larvas BSF" className="w-full h-full object-cover filter contrast-110" />
+                                <img src="https://images.unsplash.com/photo-1596464878233-02f89f5bc79c?q=80&w=800&auto=format&fit=crop" alt="Larvas BSF" className="w-full h-full object-cover filter contrast-110" loading="lazy" decoding="async" />
                              </div>
                              <div className="w-full md:w-1/2 order-2 md:order-1">
                                 <span className="text-gold-500 font-display text-5xl opacity-50 absolute -mt-8 -ml-4 z-0">02</span>
@@ -110,7 +112,7 @@ const CaseVina: React.FC = () => {
                         {/* Process Step 3 */}
                         <ScrollReveal className="flex flex-col md:flex-row gap-6 items-start">
                              <div className="w-full md:w-1/2 rounded-sm overflow-hidden shadow-lg h-64">
-                                <img src="https://images.unsplash.com/photo-1596525737525-42294f86d8b0?q=80&w=800&auto=format&fit=crop" alt="Producto Final" className="w-full h-full object-cover" />
+                                <img src="https://images.unsplash.com/photo-1596525737525-42294f86d8b0?q=80&w=800&auto=format&fit=crop" alt="Producto Final" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                              </div>
                              <div className="w-full md:w-1/2">
                                 <span className="text-gold-500 font-display text-5xl opacity-50 absolute -mt-8 -ml-4 z-0">03</span>

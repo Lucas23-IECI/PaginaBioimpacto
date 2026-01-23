@@ -64,7 +64,9 @@ Enviado desde el formulario web de BioImpacto.`;
                 <img
                     alt="Textura orgánica Contacto"
                     className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
-                    src="/Fotos/Background/BackgroundContacto.jpg"
+                    src="/Fotos/Background/BackgroundContacto.webp"
+                    loading="lazy"
+                    decoding="async"
                 />
             </div>
 

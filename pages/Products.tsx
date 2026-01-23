@@ -76,6 +76,8 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ images, activeIndex: 
                         key={idx}
                         src={img.src}
                         alt={img.label}
+                        loading="lazy"
+                        decoding="async"
                         className="min-w-full h-full snap-center shrink-0 object-cover"
                     />
                 ))}
@@ -130,18 +132,18 @@ const Products: React.FC = () => {
     ];
 
     const wormImages = [
-        { src: "/Fotos/Productos/NucleosDeLombrices/500.png", label: "500 Unidades" },
-        { src: "/Fotos/Productos/NucleosDeLombrices/750.png", label: "750 Unidades" },
-        { src: "/Fotos/Productos/NucleosDeLombrices/1000.png", label: "1.000 Unidades" },
-        { src: "/Fotos/Productos/NucleosDeLombrices/2000.png", label: "2.000 Unidades" }
+        { src: "/Fotos/Productos/NucleosDeLombrices/500.webp", label: "500 Unidades" },
+        { src: "/Fotos/Productos/NucleosDeLombrices/750.webp", label: "750 Unidades" },
+        { src: "/Fotos/Productos/NucleosDeLombrices/1000.webp", label: "1.000 Unidades" },
+        { src: "/Fotos/Productos/NucleosDeLombrices/2000.webp", label: "2.000 Unidades" }
     ];
 
     // UPDATED BSF Images: 4 Images mapped to the 4 formats
     const bsfImages = [
-        { src: "/Fotos/Productos/NucleosMoscaSoldado/25.png", label: "25 Unidades - Inicial" },
-        { src: "/Fotos/Productos/NucleosMoscaSoldado/50.png", label: "50 Unidades - Núcleo" },
-        { src: "/Fotos/Productos/NucleosMoscaSoldado/100.png", label: "100 Unidades - Avanzado" },
-        { src: "/Fotos/Productos/NucleosMoscaSoldado/250.png", label: "250 Unidades - Experto" }
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/25.webp", label: "25 Unidades - Inicial" },
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/50.webp", label: "50 Unidades - Núcleo" },
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/100.webp", label: "100 Unidades - Avanzado" },
+        { src: "/Fotos/Productos/NucleosMoscaSoldado/250.webp", label: "250 Unidades - Experto" }
     ];
 
     return (
@@ -151,7 +153,9 @@ const Products: React.FC = () => {
                 <img
                     alt="Textura orgánica bioconversión"
                     className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
-                    src="/Fotos/Background/BackgroundProductos.jpg"
+                    src="/Fotos/Background/BackgroundProductos.webp"
+                    loading="lazy"
+                    decoding="async"
                 />
             </div>
 
@@ -179,6 +183,8 @@ const Products: React.FC = () => {
                                     alt={wormImages[selectedWormIndex].label}
                                     className="w-full h-full min-h-[300px] object-cover"
                                     src={wormImages[selectedWormIndex].src}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 {/* Navigation Arrows */}
                                 <div className="absolute inset-0 pointer-events-none flex items-center justify-between px-4 z-20">
@@ -357,6 +363,8 @@ const Products: React.FC = () => {
                                     alt={bsfImages[selectedBSFIndex].label}
                                     className="w-full h-full min-h-[300px] object-cover"
                                     src={bsfImages[selectedBSFIndex].src}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 {/* Navigation Arrows */}
                                 <div className="absolute inset-0 pointer-events-none flex items-center justify-between px-4 z-20">
@@ -397,7 +405,9 @@ const Products: React.FC = () => {
                                 <img
                                     alt="Instalaciones de Bioconversión Industrial"
                                     className="w-full h-full min-h-[300px] object-cover transition-transform duration-1000 filter brightness-75"
-                                    src="/Fotos/Productos/AsesoriaTecnica/AsesoriaTec.jpg"
+                                    src="/Fotos/Productos/AsesoriaTecnica/AsesoriaTec.webp"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>

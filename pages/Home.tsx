@@ -6,7 +6,7 @@ const Home: React.FC = () => {
     return (
         <div className="relative">
             <header className="relative min-h-screen flex items-center justify-center pt-20" style={{
-                backgroundImage: `url('/Fotos/Background/BackgroundHero.jpg')`,
+                backgroundImage: `url('/Fotos/Background/BackgroundHero.webp')`,
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
@@ -53,8 +53,10 @@ const Home: React.FC = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-xl rounded-sm overflow-hidden border border-forest-200 dark:border-white/5">
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group">
                                 <img
-                                    src="/Fotos/Home/NucleoLombriz.png"
+                                    src="/Fotos/Home/NucleoLombriz.webp"
                                     alt="Lombrices Californianas en sustrato"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -129,8 +131,10 @@ const Home: React.FC = () => {
                             </div>
                             <div className="relative min-h-[500px] lg:h-auto overflow-hidden group order-1 lg:order-2">
                                 <img
-                                    src="/Fotos/Home/NucleosLarvas.png"
+                                    src="/Fotos/Home/NucleosLarvas.webp"
                                     alt="Larvas de Mosca Soldado Negra"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter hover:contrast-110 opacity-90 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -146,8 +150,10 @@ const Home: React.FC = () => {
                     {/* Left Image Side */}
                     <div className="relative min-h-[500px] lg:min-h-[900px]">
                         <img
-                            src="/Fotos/Home/AsesoriaFoto.png"
+                            src="/Fotos/Home/AsesoriaFoto.webp"
                             alt="Invernadero y estructura verde"
+                            loading="lazy"
+                            decoding="async"
                             className="absolute inset-0 w-full h-full object-cover opacity-80"
                         />
                         <div className="absolute inset-0 bg-forest-900/20"></div>
@@ -244,7 +250,7 @@ const Home: React.FC = () => {
             </section>
 
             <section className="relative py-40" style={{
-                backgroundImage: `url('/Fotos/Background/BackgroundOrigen.jpg')`,
+                backgroundImage: `url('/Fotos/Background/BackgroundOrigen.webp')`,
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',

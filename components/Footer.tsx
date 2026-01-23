@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 mb-20">
                     <div className="col-span-1 md:col-span-2 lg:col-span-4">
                         <div className="flex items-center gap-3 mb-6">
-                            <img src={LOGO_URL} alt="BioImpacto Logo" className="w-12 h-12 rounded-full border border-forest-900/10 object-cover shadow-sm" />
+                            <img src={LOGO_URL} alt="BioImpacto Logo" loading="lazy" decoding="async" className="w-12 h-12 rounded-full border border-forest-900/10 object-cover shadow-sm" />
                             <h2 className="text-4xl font-display text-forest-900">BioImpacto</h2>
                         </div>
                         <p className="text-forest-800 max-w-md font-light leading-relaxed mb-8 text-lg">

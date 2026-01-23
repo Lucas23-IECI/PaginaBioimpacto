@@ -12,6 +12,8 @@ const CaseAvicola: React.FC = () => {
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-hpV9FKWFTrkRtbKqTqYEuddkB7f2o2khXQy0m50ZXv5rBvkHEVo76Plq2KFsCrojxv4g-qS0Kl7_KbswjI8AnB3mUs9SZcWmUx_d3qzdI6tbmVv1VN7hylGlUZIk4cL-MVCFgZCQ8soTPDgSK7xgRrFKn-QIfWPryPRPrNFW9iwNXgbI94TWAfizj5ZSQ3d1MAC-7ihwmhBcIGj2KPTBsEL71MwGW2Sq4sZPtHt87HWKqfAWafFtBR_ZpDEErt-WLlzHKK2iXOFR" 
                         alt="Instalaciones Avícola" 
                         className="w-full h-full object-cover filter brightness-[0.4]"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-forest-900 via-transparent to-forest-900/50"></div>
                 </div>
@@ -76,6 +78,8 @@ const CaseAvicola: React.FC = () => {
                             src="https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                             alt="Planta de tratamiento con BSF" 
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
                         />
                         <div className="absolute inset-0 bg-forest-900/20 group-hover:bg-transparent transition-colors duration-500"></div>
                     </div>
@@ -139,6 +143,8 @@ const CaseAvicola: React.FC = () => {
                              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK0_TulWvmpPtLOYQEqwA187vMxt9PJ3i_0bYDsVsuizRFYfz9G5S6ZAnBhkIGtPyT7FJBcNhf7BqUO2R7kp09TAECS_kew8NypA8IWKyLPeZU5XHfQK7vIkQB_2FyaGgljDeg1IgiFOIjRg0nsUukCkiVaxLi02niqIEvHlQ1NXTtgIJI85E8t8cAc9Nd5v8H_rIO4YrLc-pH622pgE0WfVJnSD8bFIfUa8_jLxQvqqeoPxwUXSXDIRsJ0UYyRr9QZCzFsF8LMGmC" 
                              alt="Larvas procesando sustrato" 
                              className="w-full h-full object-cover"
+                             loading="lazy"
+                             decoding="async"
                         />
                     </div>
                  </div>

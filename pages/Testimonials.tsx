@@ -275,7 +275,9 @@ const Testimonials: React.FC = () => {
                 <img
                     alt="Textura orgánica testimonios"
                     className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
-                    src="/Fotos/Background/BackgroundTestimonios2.jpg"
+                    src="/Fotos/Background/BackgroundTestimonios2.webp"
+                    loading="lazy"
+                    decoding="async"
                 />
             </div>
 
@@ -310,6 +312,8 @@ const Testimonials: React.FC = () => {
                                 <div className="relative group cursor-pointer min-h-[400px]">
                                     <img
                                         alt="Video Testimonio Agricultor"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK8LTGM0Iw1obqL-6byZ1tEdMqmWNamvV68m5qTT4A3smE_xtqQ0D_u5p3BCAYmTuuR8caEtSi-vr7-UXZxFY_ulxIA8I10RaN8CFkTxiOViToeBO8NeSfE-fWAqWlz0Mp70-LaQCxSrc-mknxtOn2sEmktFPg0K9BTiEphYJMt1HOZdowrSQifCnQU9na4sJGg3PMZTYn9xXkU03VnzMKfY7bUv5O06Ke0jOFjJHeBLm8oxQ_sxjGWqPJWhCcczRjB4l4Y42aY8M8"
                                     />
@@ -324,6 +328,8 @@ const Testimonials: React.FC = () => {
                                         <div className="flex items-center gap-4">
                                             <img
                                                 alt="Roberto Mendez"
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="w-12 h-12 rounded-full border-2 border-gold-400 shadow-sm"
                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3kJ54PaNf1GxmQJ8y9GR65pXBX04aqdDxEzjHjA_p6QW9Ortu3_t9On_KOVsXb_Vltv2KdyNDfrGW5a5oWsybYl1aD2HmliIQMzU0hVwbvT-Sh4lxwGY3yl2nR_vcxvs_iRQZLJWvcDaZT5D39tH7QExlCENILSaicTdZtqM3LRbDHI39llyBSOVGwcqAfKKqwUxBuMfP0ogW3hJyqI_l8_txHAOnpcTNYD0nvHjhoUT2K1jZYYwJgpeucRrKoanXCyfOsczLh3Pf"
                                             />
@@ -461,6 +467,8 @@ const Testimonials: React.FC = () => {
                                             <div className="aspect-video bg-forest-100 dark:bg-forest-900 overflow-hidden relative rounded-sm shadow-inner border border-forest-200 dark:border-forest-700">
                                                 <img
                                                     alt="Caso Avícola"
+                                                    loading="lazy"
+                                                    decoding="async"
                                                     className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 transition-opacity"
                                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-hpV9FKWFTrkRtbKqTqYEuddkB7f2o2khXQy0m50ZXv5rBvkHEVo76Plq2KFsCrojxv4g-qS0Kl7_KbswjI8AnB3mUs9SZcWmUx_d3qzdI6tbmVv1VN7hylGlUZIk4cL-MVCFgZCQ8soTPDgSK7xgRrFKn-QIfWPryPRPrNFW9iwNXgbI94TWAfizj5ZSQ3d1MAC-7ihwmhBcIGj2KPTBsEL71MwGW2Sq4sZPtHt87HWKqfAWafFtBR_ZpDEErt-WLlzHKK2iXOFR"
                                                 />
@@ -522,6 +530,8 @@ const Testimonials: React.FC = () => {
                                             <div className="aspect-video bg-forest-100 dark:bg-forest-900 overflow-hidden relative rounded-sm shadow-inner border border-forest-200 dark:border-forest-700">
                                                 <img
                                                     alt="Caso Frutícola"
+                                                    loading="lazy"
+                                                    decoding="async"
                                                     className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 transition-opacity"
                                                     src="https://images.unsplash.com/photo-1615811361269-66924b123681?q=80&w=800&auto=format&fit=crop"
                                                 />

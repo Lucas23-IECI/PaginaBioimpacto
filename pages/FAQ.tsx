@@ -39,7 +39,9 @@ const FAQ: React.FC = () => {
                 <img
                     alt="Textura orgánica FAQ"
                     className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
-                    src="/Fotos/Background/BackgroundFaq.jpg"
+                    src="/Fotos/Background/BackgroundFaq.webp"
+                    loading="lazy"
+                    decoding="async"
                 />
             </div>
 

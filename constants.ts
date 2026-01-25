@@ -1,7 +1,7 @@
 import { SocialLink, NavLink, SearchItem } from './types';
 
 // Using the specific Logo requested. Assuming it's in the public folder.
-export const LOGO_URL = "/Fotos/Logo/Logo.png";
+export const LOGO_URL = "/Fotos/Logo/Logo.png"; // Force updated
 
 export const SOCIAL_LINKS: SocialLink[] = [
     {

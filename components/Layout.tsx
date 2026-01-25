@@ -10,12 +10,12 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const { pathname, hash } = useLocation();
-    
+
     const isSticky = pathname === '/';
 
     useEffect(() => {
         const html = document.documentElement;
-        
+
         // 1. Disable smooth scrolling globally to prevent "drifting" between pages
         html.style.scrollBehavior = 'auto';
 
@@ -41,6 +41,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         return () => clearTimeout(timer);
     }, [pathname, hash]);
+
+    // Dynamic Title & Favicon handlers
+    useEffect(() => {
+        const originalTitle = document.title;
+
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                document.title = "¡Te extrañamos! 🌿";
+            } else {
+                document.title = originalTitle;
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+    }, []);
 
     return (
         <div className="flex flex-col min-h-screen bg-forest-50 dark:bg-forest-900 transition-colors duration-300">

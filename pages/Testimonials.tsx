@@ -255,15 +255,7 @@ const Testimonials: React.FC = () => {
     return (
         <div className="bg-forest-50 dark:bg-forest-900 min-h-screen text-forest-900 dark:text-cream transition-colors duration-300 relative">
             {/* Background Image para toda la página */}
-            <div className="fixed inset-0 z-0 overflow-hidden">
-                <img
-                    alt="Textura orgánica testimonios"
-                    className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
-                    src="/Fotos/Background/BackgroundTestimonios2.webp"
-                    loading="lazy"
-                    decoding="async"
-                />
-            </div>
+            {/* Background Image removed to use Header background instead */}
 
             <Toast
                 isVisible={toast.show}
@@ -271,8 +263,15 @@ const Testimonials: React.FC = () => {
                 onClose={() => setToast({ ...toast, show: false })}
             />
 
-            <header className="relative min-h-[60vh] flex items-center justify-center pt-20 z-10">
-                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-forest-50/30 to-forest-50/50 dark:from-transparent dark:via-forest-900/30 dark:to-forest-900/50 transition-colors duration-300"></div>
+            <header className="relative min-h-[60vh] flex items-center justify-center pt-20 z-10" style={{
+                backgroundImage: `url('/Fotos/Background/BackgroundTestimonios2.webp')`,
+                backgroundAttachment: 'fixed',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }}>
+                <div className="absolute inset-0 bg-forest-100/40 dark:bg-forest-900/60 backdrop-blur-[1px] transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-50 via-forest-50/20 to-transparent dark:from-forest-900 dark:via-forest-900/40 dark:to-transparent transition-colors duration-300"></div>
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <ScrollReveal>
                         <div className="glass-panel p-10 md:p-12 rounded-sm max-w-4xl mx-auto bg-white/60 dark:bg-forest-900/60">

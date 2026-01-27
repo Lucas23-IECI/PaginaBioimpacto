@@ -35,18 +35,18 @@ const FAQ: React.FC = () => {
     return (
         <div className="bg-forest-50 dark:bg-forest-900 min-h-screen transition-colors duration-300 relative">
             {/* Background Image para toda la página */}
-            <div className="fixed inset-0 z-0 overflow-hidden">
-                <img
-                    alt="Textura orgánica FAQ"
-                    className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
-                    src="/Fotos/Background/BackgroundFaq.webp"
-                    loading="lazy"
-                    decoding="async"
-                />
-            </div>
+            {/* Background Image removed to use Header background instead */}
 
             {/* Header Section */}
-            <div className="pt-32 pb-16 relative z-10 overflow-hidden transition-colors duration-300">
+            <div className="pt-32 pb-16 relative z-10 overflow-hidden transition-colors duration-300 flex items-center justify-center" style={{
+                backgroundImage: `url('/Fotos/Background/BackgroundFaq.webp')`,
+                backgroundAttachment: 'fixed',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }}>
+                <div className="absolute inset-0 bg-forest-100/40 dark:bg-forest-900/60 backdrop-blur-[1px] transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-50 via-forest-50/20 to-transparent dark:from-forest-900 dark:via-forest-900/40 dark:to-transparent transition-colors duration-300"></div>
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold-400/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-forest-100 dark:bg-forest-900/40 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none transition-colors duration-300"></div>
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -64,7 +64,7 @@ const FAQ: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
                     {/* FAQ Content - Left Column */}
                     <div className="lg:col-span-8 space-y-16">
-                        
+
                         {/* Section 1: Productos */}
                         <section>
                             <ScrollReveal>
@@ -75,7 +75,7 @@ const FAQ: React.FC = () => {
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Nuestros Productos</h2>
                                 </div>
                                 <div className="space-y-4">
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Cuál es la diferencia entre lombrices y mosca soldado negra?"
                                         answer={
                                             <>
@@ -84,11 +84,11 @@ const FAQ: React.FC = () => {
                                             </>
                                         }
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Cómo se envían los núcleos?"
                                         answer="Utilizamos embalaje respirable con un sustrato húmedo y nutritivo que crea un microclima estable durante el transporte. Esto permite que el núcleo biológico viaje en condiciones óptimas por 7 a 10 días, e incluye garantía de supervivencia DOA (Dead on Arrival)."
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Qué incluye el kit inicial?"
                                         answer={
                                             <>
@@ -117,7 +117,7 @@ const FAQ: React.FC = () => {
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Proceso de Bioconversión</h2>
                                 </div>
                                 <div className="space-y-4">
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Qué residuos no debo usar en el vermicompostaje doméstico?"
                                         answer={
                                             <>
@@ -126,7 +126,7 @@ const FAQ: React.FC = () => {
                                             </>
                                         }
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Cuánto tiempo toma obtener humus?"
                                         answer={
                                             <>
@@ -149,7 +149,7 @@ const FAQ: React.FC = () => {
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Logística y Envíos</h2>
                                 </div>
                                 <div className="space-y-4">
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Cuáles son los plazos de despacho?"
                                         answer="Los despachos se realizan entre 2 y 5 días hábiles, según el tipo de producto y la región de destino. Nos aseguramos de tener condiciones óptimas de transporte y supervivencia."
                                     />
@@ -167,7 +167,7 @@ const FAQ: React.FC = () => {
                                     <h2 className="text-2xl font-display text-forest-900 dark:text-white transition-colors duration-300">Consultoría y Acompañamiento Estratégico</h2>
                                 </div>
                                 <div className="space-y-4">
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Ofrecen asesoría fuera de mi región?"
                                         answer={
                                             <>
@@ -176,7 +176,7 @@ const FAQ: React.FC = () => {
                                             </>
                                         }
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Pueden diseñar sistemas con enfoque productivo o comercial?"
                                         answer={
                                             <>
@@ -185,11 +185,11 @@ const FAQ: React.FC = () => {
                                             </>
                                         }
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿La consultoría incluye acompañamiento en la implementación?"
                                         answer="Sí. Nuestro trabajo no termina en el diseño. Acompañamos la puesta en marcha, capacitamos a tu equipo y realizamos ajustes iniciales para asegurar que el sistema funcione correctamente desde el inicio y se mantenga estable en el tiempo."
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Este sistema realmente me puede generar ingresos?"
                                         answer={
                                             <>
@@ -198,15 +198,15 @@ const FAQ: React.FC = () => {
                                             </>
                                         }
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Cuándo empieza a ser rentable un sistema de bioconversión?"
                                         answer="Depende de la escala, el tipo de residuo y el modelo de uso. En proyectos bien diseñados, es posible ver impactos económicos positivos en los primeros meses, ya sea por reducción de costos o por valorización del producto generado."
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Puedo vender la biomasa o el producto final?"
                                         answer="Sí. La biomasa generada —como larvas ricas en proteína o Lombrices Californianas— puede utilizarse para autoconsumo animal o venta."
                                     />
-                                    <AccordionItem 
+                                    <AccordionItem
                                         question="¿Esto es un negocio o un complemento a mi actividad actual?"
                                         answer="Puede ser ambas cosas. Para algunos clientes es un complemento que reduce costos; para otros, una línea productiva adicional. La clave está en el diseño del sistema y en el objetivo desde el inicio."
                                     />
@@ -224,7 +224,7 @@ const FAQ: React.FC = () => {
                                 <p className="text-forest-700 dark:text-gray-300 text-sm font-light mb-6 transition-colors duration-300">
                                     Nuestro equipo técnico está disponible para responder dudas específicas sobre tu proyecto.
                                 </p>
-                                <a 
+                                <a
                                     href={whatsappLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -232,7 +232,7 @@ const FAQ: React.FC = () => {
                                 >
                                     Contactar por WhatsApp
                                 </a>
-                                <a 
+                                <a
                                     href="/contacto"
                                     className="w-full bg-forest-50 dark:bg-forest-900 hover:bg-forest-100 dark:hover:bg-forest-800 text-forest-900 dark:text-white border border-forest-200 dark:border-forest-600 font-medium py-3 px-6 rounded-sm transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-2"
                                 >

@@ -151,18 +151,17 @@ const Products: React.FC = () => {
     return (
         <div className="pt-20 bg-forest-50 dark:bg-forest-900 transition-colors duration-300 min-h-screen relative">
             {/* Background Image para toda la página */}
-            <div className="fixed inset-0 z-0 overflow-hidden">
-                <img
-                    alt="Textura orgánica bioconversión"
-                    className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15]"
-                    src="/Fotos/Background/BackgroundProductos.webp"
-                    loading="lazy"
-                    decoding="async"
-                />
-            </div>
+            {/* Background Image removed to use Header background instead */}
 
-            <header className="relative py-16 lg:py-32 overflow-hidden z-10">
-                <div className="absolute inset-0 bg-gradient-to-b from-forest-50/50 via-forest-50/30 to-transparent dark:from-forest-900/50 dark:via-forest-900/30 dark:to-transparent transition-colors duration-300"></div>
+            <header className="relative py-32 lg:py-48 overflow-hidden z-10 flex items-center justify-center" style={{
+                backgroundImage: `url('/Fotos/Background/BackgroundProductos.webp')`,
+                backgroundAttachment: 'fixed',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }}>
+                <div className="absolute inset-0 bg-forest-100/40 dark:bg-forest-900/60 backdrop-blur-[1px] transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-50 via-forest-50/20 to-transparent dark:from-forest-900 dark:via-forest-900/40 dark:to-transparent transition-colors duration-300"></div>
                 <ScrollReveal className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <span className="block text-gold-600 dark:text-gold-400 uppercase tracking-[0.3em] text-xs font-bold mb-6 animate-fade-in transition-colors duration-300">Catálogo 2026</span>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-forest-900 dark:text-white leading-tight mb-6 drop-shadow-lg transition-colors duration-300">
@@ -241,8 +240,8 @@ const Products: React.FC = () => {
                                                 key={format.id}
                                                 onClick={() => setSelectedWormIndex(idx)}
                                                 className={`p-2 rounded-sm text-center transition-all duration-300 border flex flex-col items-center justify-center min-h-[60px] md:h-16 ${selectedWormIndex === idx
-                                                        ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
-                                                        : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
+                                                    ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
+                                                    : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
                                                     }`}
                                             >
                                                 <span className={`block font-bold text-base md:text-lg leading-none ${selectedWormIndex === idx ? 'text-forest-900' : 'text-white'}`}>
@@ -276,7 +275,7 @@ const Products: React.FC = () => {
                 <div id="mosca" className="container mx-auto px-4 mb-16 max-w-7xl scroll-mt-32">
                     <ScrollReveal>
                         <div className="flex flex-col lg:flex-row-reverse shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300">
-                            
+
                             {/* Text Column (Right) - Dark Themed: Forest 900 */}
                             <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                                 {/* Decorative Blur */}
@@ -306,8 +305,8 @@ const Products: React.FC = () => {
                                                 key={format.id}
                                                 onClick={() => setSelectedBSFIndex(idx)}
                                                 className={`p-2 rounded-sm text-center transition-all duration-300 border flex flex-col items-center justify-center min-h-[60px] md:h-16 ${selectedBSFIndex === idx
-                                                        ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
-                                                        : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
+                                                    ? 'bg-gold-400 border-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.2)] transform -translate-y-0.5'
+                                                    : 'bg-forest-900/50 border-forest-600 hover:border-gold-400/50 text-gray-300'
                                                     }`}
                                             >
                                                 <span className={`block font-bold text-base md:text-lg leading-none ${selectedBSFIndex === idx ? 'text-forest-900' : 'text-white'}`}>
@@ -333,7 +332,7 @@ const Products: React.FC = () => {
                                     </Link>
                                 </div>
                             </div>
-                            
+
                             {/* Image Column (Left) */}
                             <div className="lg:w-1/2 relative overflow-hidden group">
                                 <img
@@ -388,7 +387,7 @@ const Products: React.FC = () => {
                                 />
                                 <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>
-                            
+
                             {/* Right Content Side - Dark Theme Always */}
                             <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                                 {/* Decorative Glow */}

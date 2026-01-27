@@ -13,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState<SearchItem[]>([]);
-    
+
     const searchRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
 
     // Helper to get icon based on category
     const getCategoryIcon = (category: string) => {
-        switch(category) {
+        switch (category) {
             case 'Producto': return 'inventory_2';
             case 'Servicio': return 'engineering';
             case 'FAQ': return 'help_outline';
@@ -51,12 +51,12 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                     if (prev) return false;
                     return prev;
                 });
-                
+
                 // Only clear query if we are effectively closing the desktop search
                 // For desktop, we clear. For mobile, we rely on the menu close.
-                 if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+                if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
                     setSearchQuery('');
-                 }
+                }
             }
         };
 
@@ -67,8 +67,8 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
     // Search Logic
     useEffect(() => {
         if (searchQuery.length > 1) {
-            const results = SEARCH_INDEX.filter(item => 
-                item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+            const results = SEARCH_INDEX.filter(item =>
+                item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 item.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
             );
             setSearchResults(results);
@@ -91,19 +91,19 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     <div className="flex-shrink-0 flex items-center gap-3 group cursor-pointer" onClick={() => navigate('/')}>
-                        <img 
-                            src={LOGO_URL} 
-                            alt="BioImpacto Logo" 
+                        <img
+                            src={LOGO_URL}
+                            alt="BioImpacto Logo"
                             loading="eager"
                             decoding="async"
                             fetchPriority="high"
-                            className="h-11 w-11 rounded-full object-cover border-2 border-gold-400 shadow-md group-hover:scale-105 transition-transform duration-300" 
+                            className="h-11 w-11 rounded-full object-cover border-2 border-gold-400 shadow-md group-hover:scale-105 transition-transform duration-300 p-0.5"
                         />
                         <span className={`text-2xl font-display tracking-tight transition-colors duration-300 ${textColorClass}`}>
                             Bio<span className="text-gold-500">Impacto</span>
                         </span>
                     </div>
-                    
+
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-6">
                         {NAV_LINKS.map((link) => (
@@ -111,15 +111,15 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                                 key={link.name}
                                 to={link.path}
                                 className={`text-xs uppercase tracking-widest font-bold transition-all duration-300 pb-1 border-b-2 
-                                    ${isActive(link.path) 
-                                        ? 'text-gold-500 border-gold-500' 
+                                    ${isActive(link.path)
+                                        ? 'text-gold-500 border-gold-500'
                                         : `${navLinkBaseClass} border-transparent hover:border-gold-500/50`
                                     }`}
                             >
                                 {link.name}
                             </RouterNavLink>
                         ))}
-                        
+
                         <div className="h-6 w-px bg-forest-200 dark:bg-white/10 mx-2"></div>
 
                         {/* Search Bar Desktop */}
@@ -128,7 +128,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                                 <button onClick={() => setIsSearchOpen(true)} className={`${textColorClass} flex items-center justify-center`}>
                                     <span className="material-icons text-xl">search</span>
                                 </button>
-                                <input 
+                                <input
                                     type="text"
                                     placeholder="Buscar..."
                                     className={`ml-2 bg-transparent outline-none text-sm w-full text-forest-900 dark:text-white placeholder-forest-400 ${isSearchOpen ? 'block' : 'hidden'}`}
@@ -152,7 +152,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                                                 Resultados ({searchResults.length})
                                             </div>
                                             {searchResults.map((result) => (
-                                                <button 
+                                                <button
                                                     key={result.id}
                                                     onClick={() => handleSearchNav(result.path)}
                                                     className="w-full text-left px-4 py-3 hover:bg-forest-50 dark:hover:bg-forest-800 border-b border-forest-50 dark:border-forest-700/50 last:border-0 flex items-center gap-3 group transition-colors"
@@ -178,9 +178,9 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                             )}
                         </div>
 
-                        <button 
+                        <button
                             onClick={toggleTheme}
-                            className={`transition-colors p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 ${textColorClass}`} 
+                            className={`transition-colors p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 ${textColorClass}`}
                             type="button"
                             aria-label="Toggle Theme"
                         >
@@ -192,9 +192,9 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center gap-4">
-                        <button 
+                        <button
                             onClick={toggleTheme}
-                            className={`transition-colors p-1 ${textColorClass}`} 
+                            className={`transition-colors p-1 ${textColorClass}`}
                             type="button"
                         >
                             <span className="material-icons text-xl align-middle">
@@ -214,7 +214,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                     <div className="px-4 pt-6 pb-2">
                         {/* Mobile Search */}
                         <div className="relative mb-6">
-                            <input 
+                            <input
                                 type="text"
                                 placeholder="Buscar en BioImpacto..."
                                 className="w-full bg-forest-50 dark:bg-forest-800 text-forest-900 dark:text-white px-4 py-3 pr-10 rounded border border-forest-200 dark:border-forest-700 focus:border-gold-400 focus:ring-1 focus:ring-gold-400 outline-none text-sm transition-all"
@@ -223,17 +223,17 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                             />
                             {/* Search Icon on the RIGHT */}
                             <span className="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-forest-400 dark:text-forest-500 text-xl pointer-events-none">search</span>
-                            
+
                             {/* Mobile Search Results */}
                             {searchQuery.length > 1 && (
                                 <div className="mt-3 bg-white dark:bg-forest-800 rounded border border-forest-200 dark:border-forest-700 shadow-lg max-h-64 overflow-y-auto animate-fade-in z-50">
-                                     {searchResults.length > 0 ? (
+                                    {searchResults.length > 0 ? (
                                         <>
                                             <div className="px-4 py-2 bg-forest-50 dark:bg-forest-900/50 text-[10px] font-bold uppercase tracking-widest text-forest-500 dark:text-forest-400 border-b border-forest-100 dark:border-forest-700 sticky top-0 backdrop-blur-sm">
                                                 Resultados
                                             </div>
                                             {searchResults.map((result) => (
-                                                <button 
+                                                <button
                                                     key={result.id}
                                                     onClick={(e) => {
                                                         e.stopPropagation(); // Ensure event isn't caught by parents erroneously
@@ -242,7 +242,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                                                     className="w-full text-left px-4 py-3 border-b border-forest-50 dark:border-forest-700/50 last:border-0 hover:bg-forest-50 dark:hover:bg-forest-700 active:bg-forest-100 dark:active:bg-forest-600 transition-colors"
                                                 >
                                                     <div className="flex items-center gap-3">
-                                                         <div className="w-8 h-8 rounded-full bg-forest-100 dark:bg-forest-900 flex items-center justify-center flex-shrink-0 text-gold-600 dark:text-gold-400">
+                                                        <div className="w-8 h-8 rounded-full bg-forest-100 dark:bg-forest-900 flex items-center justify-center flex-shrink-0 text-gold-600 dark:text-gold-400">
                                                             <span className="material-icons text-sm">{getCategoryIcon(result.category)}</span>
                                                         </div>
                                                         <div className="flex-1 min-w-0">
@@ -264,7 +264,7 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                             )}
                         </div>
                     </div>
-                    
+
                     <div className="px-2 pb-6 space-y-2 sm:px-3">
                         {NAV_LINKS.map((link) => (
                             <RouterNavLink
@@ -281,17 +281,17 @@ const Navbar: React.FC<NavbarProps> = ({ isSticky }) => {
                             </RouterNavLink>
                         ))}
                     </div>
-                    
+
                     {/* Mobile Footer Info */}
                     <div className="mt-4 px-6 pt-6 border-t border-forest-100 dark:border-white/5 pb-8">
-                         <div className="flex flex-col gap-4 text-sm text-forest-600 dark:text-white/50">
+                        <div className="flex flex-col gap-4 text-sm text-forest-600 dark:text-white/50">
                             <p className="flex items-center gap-2">
                                 <span className="material-icons text-gold-400 text-base">phone</span> +56 9 9267 3011
                             </p>
                             <p className="flex items-center gap-2">
                                 <span className="material-icons text-gold-400 text-base">mail</span> contacto@bioimpacto.cl
                             </p>
-                         </div>
+                        </div>
                     </div>
                 </div>
             )}

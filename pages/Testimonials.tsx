@@ -145,49 +145,33 @@ const Testimonials: React.FC = () => {
         {
             id: 1,
             text: "Increíble el rendimiento de la mosca soldado negra para procesar los desechos de nuestra planta de packing. Pasamos de pagar por el retiro de basura a generar proteína. Es un cambio de paradigma total para nuestra operación.",
-            author: "Juan Pablo Soto",
+            author: "",
             role: "Agroindustrial del Sur",
-            initials: "JP",
+            initials: "",
             rating: 5
         },
         {
             id: 2,
             text: "Partimos buscando una forma de reducir residuos y terminamos montando un sistema que hoy produce biomasa rica en proteína para alimentación animal. Pasamos de botar residuos a generar un producto con valor comercial.",
-            author: "María Álvarez",
-            role: "Huerta Orgánica Vida",
-            initials: "MA",
+            author: "",
+            role: "Tiene un campo y alimenta a sus animales con biomasa",
+            initials: "",
             rating: 5
         },
         {
             id: 3,
             text: "La asesoría fue clave. No solo nos entregaron los núcleos, nos enseñaron a operar el sistema, a mantenerlo estable y a escalarlo. Hoy el sistema funciona de forma continua y controlada.",
-            author: "Carlos Ruiz",
-            role: "Viña Santa Elena",
-            initials: "CR",
-            rating: 4.5
-        },
-        {
-            id: 4,
-            text: "La asesoría fue clave. No solo nos entregaron los núcleos, nos enseñaron a operar el sistema, a mantenerlo estable y a escalarlo. Hoy el sistema funciona de forma continua y controlada.",
-            author: "Fernanda Lagos",
-            role: "Jardín Comunitario Los Tilos",
-            initials: "FL",
+            author: "",
+            role: "Compró lombrices para reducir sus residuos orgánicos",
+            initials: "",
             rating: 5
         },
         {
-            id: 5,
+            id: 4,
             text: "Hoy producimos parte del alimento proteico para nuestros animales a partir de residuos propios. Bajamos costos y dejamos de depender completamente de proveedores externos.",
-            author: "Esteban Garrido",
-            role: "Procesadora Alimentos Bío",
-            initials: "EG",
-            rating: 4
-        },
-        {
-            id: 6,
-            text: "Llevo 2 años trabajando con BioImpacto y la calidad del humus que ahora produzco ha mejorado significativamente mis cultivos de hortalizas orgánicas.",
-            author: "Patricia Vera",
-            role: "Agricultura Familiar",
-            initials: "PV",
+            author: "",
+            role: "Productor piscicultor",
+            initials: "",
             rating: 5
         }
     ];
@@ -381,11 +365,13 @@ const Testimonials: React.FC = () => {
                                         </div>
                                         <div className="flex items-center justify-between border-t border-forest-100 dark:border-forest-700 pt-6 mt-auto">
                                             <div className="flex items-center gap-4">
-                                                <div className="w-10 h-10 bg-forest-100 dark:bg-forest-700 rounded-full flex items-center justify-center text-gold-600 dark:text-gold-400 font-bold border border-forest-200 dark:border-forest-600 transition-colors duration-300">
-                                                    {t.initials}
-                                                </div>
+                                                {t.initials && (
+                                                    <div className="w-10 h-10 bg-forest-100 dark:bg-forest-700 rounded-full flex items-center justify-center text-gold-600 dark:text-gold-400 font-bold border border-forest-200 dark:border-forest-600 transition-colors duration-300">
+                                                        {t.initials}
+                                                    </div>
+                                                )}
                                                 <div>
-                                                    <h5 className="text-forest-900 dark:text-cream font-medium text-sm transition-colors duration-300">{t.author}</h5>
+                                                    {t.author && <h5 className="text-forest-900 dark:text-cream font-medium text-sm transition-colors duration-300">{t.author}</h5>}
                                                     <p className="text-xs text-forest-500 dark:text-gray-500 uppercase tracking-wide">{t.role}</p>
                                                 </div>
                                             </div>
@@ -411,8 +397,8 @@ const Testimonials: React.FC = () => {
                                                 key={idx}
                                                 onClick={() => paginate(idx + 1)}
                                                 className={`h-2.5 rounded-full transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-gold-400/50 ${currentPage === idx + 1
-                                                        ? 'w-8 bg-gold-400'
-                                                        : 'w-2.5 bg-forest-200 dark:bg-forest-700 hover:bg-gold-300'
+                                                    ? 'w-8 bg-gold-400'
+                                                    : 'w-2.5 bg-forest-200 dark:bg-forest-700 hover:bg-gold-300'
                                                     }`}
                                                 aria-label={`Ir a página ${idx + 1}`}
                                             />
@@ -425,8 +411,8 @@ const Testimonials: React.FC = () => {
                                             onClick={() => paginate(currentPage - 1)}
                                             disabled={currentPage === 1}
                                             className={`flex items-center gap-2 px-6 py-3 rounded-sm border transition-all uppercase text-xs font-bold tracking-widest ${currentPage === 1
-                                                    ? 'border-forest-100 dark:border-forest-700 text-forest-300 dark:text-forest-600 cursor-not-allowed'
-                                                    : 'border-forest-300 dark:border-forest-500 text-forest-700 dark:text-white hover:bg-gold-400 hover:text-forest-900 hover:border-gold-400'
+                                                ? 'border-forest-100 dark:border-forest-700 text-forest-300 dark:text-forest-600 cursor-not-allowed'
+                                                : 'border-forest-300 dark:border-forest-500 text-forest-700 dark:text-white hover:bg-gold-400 hover:text-forest-900 hover:border-gold-400'
                                                 }`}
                                         >
                                             <span className="material-icons text-base">arrow_back</span>
@@ -439,8 +425,8 @@ const Testimonials: React.FC = () => {
                                             onClick={() => paginate(currentPage + 1)}
                                             disabled={currentPage === totalPages}
                                             className={`flex items-center gap-2 px-6 py-3 rounded-sm border transition-all uppercase text-xs font-bold tracking-widest ${currentPage === totalPages
-                                                    ? 'border-forest-100 dark:border-forest-700 text-forest-300 dark:text-forest-600 cursor-not-allowed'
-                                                    : 'border-forest-300 dark:border-forest-500 text-forest-700 dark:text-white hover:bg-gold-400 hover:text-forest-900 hover:border-gold-400'
+                                                ? 'border-forest-100 dark:border-forest-700 text-forest-300 dark:text-forest-600 cursor-not-allowed'
+                                                : 'border-forest-300 dark:border-forest-500 text-forest-700 dark:text-white hover:bg-gold-400 hover:text-forest-900 hover:border-gold-400'
                                                 }`}
                                         >
                                             Siguiente
@@ -470,7 +456,7 @@ const Testimonials: React.FC = () => {
                                                     loading="lazy"
                                                     decoding="async"
                                                     className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 transition-opacity"
-                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-hpV9FKWFTrkRtbKqTqYEuddkB7f2o2khXQy0m50ZXv5rBvkHEVo76Plq2KFsCrojxv4g-qS0Kl7_KbswjI8AnB3mUs9SZcWmUx_d3qzdI6tbmVv1VN7hylGlUZIk4cL-MVCFgZCQ8soTPDgSK7xgRrFKn-QIfWPryPRPrNFW9iwNXgbI94TWAfizj5ZSQ3d1MAC-7ihwmhBcIGj2KPTBsEL71MwGW2Sq4sZPtHt87HWKqfAWafFtBR_ZpDEErt-WLlzHKK2iXOFR"
+                                                    src="/Fotos/Testimonio/1.png"
                                                 />
                                                 <div className="absolute top-4 left-4 bg-white/90 dark:bg-forest-900/90 backdrop-blur text-gold-600 dark:text-gold-400 text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-sm shadow-md border border-gold-400/20">Avícola</div>
                                             </div>
@@ -491,7 +477,7 @@ const Testimonials: React.FC = () => {
                                             </div>
                                             <div className="mb-6">
                                                 <ExpandableText
-                                                    text="Implementación de un sistema de bioconversión con Mosca Soldado Negra para el tratamiento de 2 toneladas diarias de guano avícola. El proyecto permitió reducir significativamente impactos ambientales y transformar un residuo crítico en biomasa rica en proteína, utilizable para alimentación animal y con potencial de comercialización."
+                                                    text="Implementación de un sistema de bioconversión con Mosca Soldado Negra para el tratamiento de 2 toneladas mensuales de guano avícola. El proyecto permitió reducir significativamente impactos ambientales y transformar un residuo crítico en biomasa rica en proteína, utilizable para alimentación animal y con potencial de comercialización."
                                                     className="text-forest-700 dark:text-gray-300 font-light"
                                                     limit={200}
                                                 />
@@ -503,7 +489,7 @@ const Testimonials: React.FC = () => {
                                                 </li>
                                                 <li className="flex items-center gap-3 text-sm text-forest-700 dark:text-gray-300 transition-colors duration-300">
                                                     <span className="material-icons text-gold-500 text-sm">check_circle</span>
-                                                    <span>Producción promedio de 300 kg de larva/día</span>
+                                                    <span>Producción promedio de 300 kg de larva al mes</span>
                                                 </li>
                                             </ul>
                                             <div className="bg-gold-400/10 border border-gold-400/30 p-3 rounded-sm mb-6 inline-block">
@@ -533,7 +519,7 @@ const Testimonials: React.FC = () => {
                                                     loading="lazy"
                                                     decoding="async"
                                                     className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 transition-opacity"
-                                                    src="https://images.unsplash.com/photo-1615811361269-66924b123681?q=80&w=800&auto=format&fit=crop"
+                                                    src="/Fotos/Testimonio/primero del segundo.png"
                                                 />
                                                 <div className="absolute top-4 left-4 bg-white/90 dark:bg-forest-900/90 backdrop-blur text-gold-600 dark:text-gold-400 text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-sm shadow-md border border-gold-400/20">Agroindustria</div>
                                             </div>

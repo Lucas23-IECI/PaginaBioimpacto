@@ -8,9 +8,9 @@ const CaseAvicola: React.FC = () => {
             {/* Hero Section */}
             <header className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-hpV9FKWFTrkRtbKqTqYEuddkB7f2o2khXQy0m50ZXv5rBvkHEVo76Plq2KFsCrojxv4g-qS0Kl7_KbswjI8AnB3mUs9SZcWmUx_d3qzdI6tbmVv1VN7hylGlUZIk4cL-MVCFgZCQ8soTPDgSK7xgRrFKn-QIfWPryPRPrNFW9iwNXgbI94TWAfizj5ZSQ3d1MAC-7ihwmhBcIGj2KPTBsEL71MwGW2Sq4sZPtHt87HWKqfAWafFtBR_ZpDEErt-WLlzHKK2iXOFR" 
-                        alt="Instalaciones Avícola" 
+                    <img
+                        src="/Fotos/Testimonio/22.png"
+                        alt="Instalaciones Avícola"
                         className="w-full h-full object-cover filter brightness-[0.4]"
                         loading="lazy"
                         decoding="async"
@@ -23,10 +23,10 @@ const CaseAvicola: React.FC = () => {
                             <span className="text-gold-400 uppercase tracking-[0.2em] text-xs font-bold">Caso de Éxito: Avícola</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-white mb-6 leading-tight">
-                            De residuo avícola a <br/><span className="text-gold-500 italic">proteína comercializable</span>
+                            De residuo avícola a <br /><span className="text-gold-500 italic">proteína comercializable</span>
                         </h1>
                         <p className="text-xl text-gray-200 font-light max-w-3xl mx-auto leading-relaxed">
-                            Implementación de un sistema de bioconversión con Mosca Soldado Negra para el tratamiento de 2 toneladas diarias de guano avícola.
+                            Implementación de un sistema de bioconversión con Mosca Soldado Negra para el tratamiento de 2 toneladas mensuales de guano avícola.
                         </p>
                     </ScrollReveal>
                 </div>
@@ -42,11 +42,11 @@ const CaseAvicola: React.FC = () => {
                         </div>
                         <div className="text-center pt-8 md:pt-0">
                             <span className="block text-4xl md:text-5xl font-display text-gold-500 mb-2">300 kg</span>
-                            <span className="text-xs uppercase tracking-widest text-forest-600 dark:text-forest-300 font-bold">Larva / Día (Promedio)</span>
+                            <span className="text-xs uppercase tracking-widest text-forest-600 dark:text-forest-300 font-bold">Larva / Mes (Promedio)</span>
                         </div>
                         <div className="text-center pt-8 md:pt-0">
                             <span className="block text-4xl md:text-5xl font-display text-gold-500 mb-2">2 Ton</span>
-                            <span className="text-xs uppercase tracking-widest text-forest-600 dark:text-forest-300 font-bold">Residuo Diario Tratado</span>
+                            <span className="text-xs uppercase tracking-widest text-forest-600 dark:text-forest-300 font-bold">Residuo Mensual Tratado</span>
                         </div>
                     </div>
                 </div>
@@ -74,9 +74,9 @@ const CaseAvicola: React.FC = () => {
                         </div>
                     </ScrollReveal>
                     <div className="relative h-[500px] rounded-sm overflow-hidden shadow-2xl group">
-                        <img 
-                            src="https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                            alt="Planta de tratamiento con BSF" 
+                        <img
+                            src="/Fotos/Testimonio/1.png"
+                            alt="Planta de tratamiento con BSF"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             loading="lazy"
                             decoding="async"
@@ -111,7 +111,7 @@ const CaseAvicola: React.FC = () => {
                             <span className="material-icons text-4xl text-forest-600 dark:text-forest-400 mb-6">bug_report</span>
                             <h3 className="text-xl font-bold text-forest-900 dark:text-white mb-3">Producción de Proteína</h3>
                             <p className="text-forest-600 dark:text-gray-400 text-sm leading-relaxed">
-                                Generación promedio de 300 kg de larva fresca por día, convirtiendo un pasivo ambiental en un insumo de alto valor nutricional.
+                                Generación promedio de 300 kg de larva fresca por mes, convirtiendo un pasivo ambiental en un insumo de alto valor nutricional.
                             </p>
                         </ScrollReveal>
                         <ScrollReveal className="bg-white dark:bg-forest-900 p-8 rounded-sm shadow-md border-t-4 border-gold-400 delay-200">
@@ -127,7 +127,7 @@ const CaseAvicola: React.FC = () => {
 
             {/* Gallery / Impact */}
             <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-forest-200 dark:border-forest-700 rounded-sm overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-forest-200 dark:border-forest-700 rounded-sm overflow-hidden">
                     <div className="bg-forest-900 p-12 md:p-16 flex flex-col justify-center text-white">
                         <span className="material-icons text-gold-400 text-5xl mb-6">format_quote</span>
                         <blockquote className="font-display text-2xl md:text-3xl leading-relaxed italic mb-8">
@@ -139,15 +139,15 @@ const CaseAvicola: React.FC = () => {
                         </div>
                     </div>
                     <div className="h-full min-h-[400px]">
-                        <img 
-                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK0_TulWvmpPtLOYQEqwA187vMxt9PJ3i_0bYDsVsuizRFYfz9G5S6ZAnBhkIGtPyT7FJBcNhf7BqUO2R7kp09TAECS_kew8NypA8IWKyLPeZU5XHfQK7vIkQB_2FyaGgljDeg1IgiFOIjRg0nsUukCkiVaxLi02niqIEvHlQ1NXTtgIJI85E8t8cAc9Nd5v8H_rIO4YrLc-pH622pgE0WfVJnSD8bFIfUa8_jLxQvqqeoPxwUXSXDIRsJ0UYyRr9QZCzFsF8LMGmC" 
-                             alt="Larvas procesando sustrato" 
-                             className="w-full h-full object-cover"
-                             loading="lazy"
-                             decoding="async"
+                        <img
+                            src="/Fotos/Testimonio/3.png"
+                            alt="Larvas procesando sustrato"
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
-                 </div>
+                </div>
             </section>
 
             {/* CTA */}

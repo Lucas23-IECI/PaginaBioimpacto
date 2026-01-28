@@ -264,11 +264,16 @@ const Products: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex flex-wrap gap-4 mt-auto">
-                                    <Link to="/contacto" className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-3 md:py-4 px-6 transition-all duration-300 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group/btn shadow-lg rounded-sm">
+                                <div className="flex flex-wrap gap-4 mt-auto justify-center">
+                                    <a
+                                        href={`https://wa.me/56992673011?text=${encodeURIComponent(`Hola, me interesa comprar ${wormFormats[selectedWormIndex].label} Unidades de Núcleos de Lombriz Californiana.`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-4 px-8 transition-all duration-300 uppercase text-sm tracking-widest flex items-center justify-center gap-3 group/btn shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] rounded-sm hover:-translate-y-1 whitespace-nowrap"
+                                    >
                                         Quiero comenzar mi compostaje
-                                        <span className="material-icons text-base group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-                                    </Link>
+                                        <span className="material-icons text-lg group-hover/btn:scale-110 transition-transform">whatsapp</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -329,11 +334,16 @@ const Products: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex flex-wrap gap-4 mt-auto">
-                                    <Link to="/contacto" className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-3 md:py-4 px-6 transition-all duration-300 uppercase text-xs tracking-widest flex items-center justify-center gap-2 group/btn shadow-lg rounded-sm">
-                                        Pedir más información
-                                        <span className="material-icons text-base group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-                                    </Link>
+                                <div className="flex flex-wrap gap-4 mt-auto justify-center">
+                                    <a
+                                        href={`https://wa.me/56992673011?text=${encodeURIComponent(`Hola, me interesa comprar ${bsfFormats[selectedBSFIndex].label} (${bsfFormats[selectedBSFIndex].sub}) de Núcleos de Mosca Soldado Negra.`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-4 px-8 transition-all duration-300 uppercase text-sm tracking-widest flex items-center justify-center gap-3 group/btn shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] rounded-sm hover:-translate-y-1 whitespace-nowrap"
+                                    >
+                                        Quiero transformar mis residuos
+                                        <span className="material-icons text-lg group-hover/btn:scale-110 transition-transform">whatsapp</span>
+                                    </a>
                                 </div>
                             </div>
 
@@ -443,10 +453,15 @@ const Products: React.FC = () => {
                                 </div>
 
                                 <div className="relative z-10 mt-auto">
-                                    <Link to="/contacto" className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-3 md:py-4 px-8 rounded-sm transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-2 shadow-lg hover:shadow-gold-400/20">
+                                    <a
+                                        href="https://wa.me/56992673011?text=Hola,%20me%20interesa%20solicitar%20una%20Asesoría%20Técnica%20para%20mi%20proyecto."
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-4 px-8 rounded-sm transition-all duration-300 uppercase text-sm tracking-widest flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:-translate-y-1 group whitespace-nowrap"
+                                    >
                                         Quiero crear un sistema rentable
-                                        <span className="material-icons text-sm">arrow_forward</span>
-                                    </Link>
+                                        <span className="material-icons text-lg group-hover:scale-110 transition-transform">whatsapp</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>

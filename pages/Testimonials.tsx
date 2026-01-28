@@ -102,6 +102,9 @@ const Testimonials: React.FC = () => {
         message: ''
     });
 
+    const [showShareModal, setShowShareModal] = useState(false);
+    const [shareDataState, setShareDataState] = useState({ text: '', url: '' });
+
     const handleShare = async (text: string, author: string) => {
         const currentUrl = window.location.href;
         const shareText = `"${text}" - ${author}`;
@@ -111,32 +114,20 @@ const Testimonials: React.FC = () => {
             url: currentUrl
         };
 
-        const copyToClipboard = async () => {
-            try {
-                await navigator.clipboard.writeText(`${shareText}\n\nLeído en: ${currentUrl}`);
-                setToast({ show: true, message: '¡Testimonio copiado al portapapeles!' });
-            } catch (err) {
-                setToast({ show: true, message: 'No se pudo copiar automáticamente' });
-            }
-        };
-
         // Try Web Share API first
         if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
             try {
                 await navigator.share(shareData);
-                // Note: Some browsers don't resolve the promise if the user cancels, 
-                // but if it resolves, we can assume success or completion.
             } catch (err) {
-                // AbortError usually means user cancelled. We only fallback on other errors
-                // or if the user explicitly wants to copy, but here we prioritize share sheet.
-                // If it's not an abort error, try clipboard.
                 if ((err as Error).name !== 'AbortError') {
-                    await copyToClipboard();
+                    setShareDataState({ text: shareText, url: currentUrl });
+                    setShowShareModal(true);
                 }
             }
         } else {
-            // Fallback for browsers without Web Share API
-            await copyToClipboard();
+            // Fallback for desktop/unsupported
+            setShareDataState({ text: shareText, url: currentUrl });
+            setShowShareModal(true);
         }
     };
 
@@ -239,23 +230,82 @@ const Testimonials: React.FC = () => {
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (validateForm()) {
-            // Simulate API call
-            setTimeout(() => {
-                setToast({ show: true, message: '¡Gracias! Tu reseña ha sido enviada.' });
-                setFormData({ name: '', company: '', rating: 0, message: '' });
-                setFormErrors({ name: '', rating: '', message: '' });
-            }, 800);
-        } else {
-            // Shake effect logic could go here, for now just static errors
-            setToast({ show: true, message: 'Por favor completa los campos requeridos.' });
+        // Perform validation synchronously
+        const submissionErrors = { name: '', rating: '', message: '' };
+        let hasError = false;
+
+        // Name validation
+        if (/\d/.test(formData.name)) {
+            submissionErrors.name = 'El nombre no puede contener números.';
+            hasError = true;
         }
+        if (!formData.name.trim()) {
+            submissionErrors.name = 'Por favor ingresa tu nombre.';
+            hasError = true;
+        }
+
+        // Company validation (toast only, as per previous requirement/constraints)
+        if (formData.company && (formData.company.match(/\d/g) || []).length > 2) {
+            setToast({ show: true, message: 'Error: La empresa no puede tener más de 2 números.' });
+            return; // Stop immediately
+        }
+
+        // Message validation
+        if (formData.message.length < 20) {
+            submissionErrors.message = 'Tu testimonio es muy corto (mínimo 20 caracteres).';
+            hasError = true;
+        }
+        if (!formData.message.trim()) {
+            submissionErrors.message = 'Por favor escribe tu testimonio.';
+            hasError = true;
+        }
+
+        // Rating validation
+        if (formData.rating === 0) {
+            submissionErrors.rating = 'Por favor selecciona una calificación.';
+            hasError = true;
+        }
+
+        setFormErrors(submissionErrors);
+
+        if (hasError) {
+            const firstMsg = submissionErrors.name || submissionErrors.rating || submissionErrors.message;
+            setToast({ show: true, message: `Error: ${firstMsg}` });
+            return;
+        }
+
+        const subject = `Testimonio: ${formData.name}`;
+        const body = `Hola equipo BioImpacto,
+
+Quiero dejar mi testimonio sobre sus servicios.
+
+Soy ${formData.name} de ${formData.company || 'mi proyecto personal'}.
+Calificación: ${formData.rating} estrellas.
+
+Mi testimonio:
+"${formData.message}"
+
+Saludos,
+${formData.name}`;
+
+        window.location.href = `mailto:contacto@bioimpacto.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        setTimeout(() => {
+            setToast({ show: true, message: 'Abriendo tu cliente de correo...' });
+            setFormData({ name: '', company: '', rating: 0, message: '' });
+            setFormErrors({ name: '', rating: '', message: '' });
+        }, 500);
+
     };
 
     return (
         <div className="bg-forest-50 dark:bg-forest-900 min-h-screen text-forest-900 dark:text-cream transition-colors duration-300 relative">
             {/* Background Image para toda la página */}
-            {/* Background Image removed to use Header background instead */}
+            {/* Background Texture for Body Content */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute inset-0 bg-[url('/Fotos/Background/BackgroundTestimonios2.webp')] bg-cover bg-center opacity-[0.03] dark:opacity-[0.05] bg-fixed mix-blend-multiply dark:mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forest-50/50 to-forest-50/80 dark:via-forest-900/50 dark:to-forest-900/80"></div>
+            </div>
 
             <Toast
                 isVisible={toast.show}
@@ -263,7 +313,65 @@ const Testimonials: React.FC = () => {
                 onClose={() => setToast({ ...toast, show: false })}
             />
 
-            <header className="relative min-h-[60vh] flex items-center justify-center pt-20 z-10" style={{
+            {/* Share Modal Fallback */}
+            {showShareModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in" onClick={() => setShowShareModal(false)}>
+                    <div className="bg-white dark:bg-forest-800 rounded-sm shadow-2xl max-w-sm w-full p-6 border border-forest-100 dark:border-forest-700 transform scale-100 transition-all" onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-center mb-6">
+                            <h3 className="text-xl font-display text-forest-900 dark:text-white">Compartir Testimonio</h3>
+                            <button onClick={() => setShowShareModal(false)} className="text-forest-400 hover:text-forest-600 dark:hover:text-forest-200">
+                                <span className="material-icons">close</span>
+                            </button>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <a
+                                href={`https://wa.me/?text=${encodeURIComponent(shareDataState.text + ' ' + shareDataState.url)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center justify-center p-4 rounded-sm bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] transition-colors gap-2"
+                            >
+                                <span className="material-icons text-3xl">chat</span>
+                                <span className="text-sm font-bold">WhatsApp</span>
+                            </a>
+                            <a
+                                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareDataState.text)}&url=${encodeURIComponent(shareDataState.url)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center justify-center p-4 rounded-sm bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 text-[#1DA1F2] transition-colors gap-2"
+                            >
+                                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current opacity-80" aria-hidden="true">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                                <span className="text-sm font-bold">Twitter / X</span>
+                            </a>
+                            <a
+                                href={`mailto:?subject=Testimonio BioImpacto&body=${encodeURIComponent(shareDataState.text + '\n\n' + shareDataState.url)}`}
+                                className="flex flex-col items-center justify-center p-4 rounded-sm bg-forest-500/10 hover:bg-forest-500/20 text-forest-600 dark:text-forest-400 transition-colors gap-2"
+                            >
+                                <span className="material-icons text-3xl">email</span>
+                                <span className="text-sm font-bold">Email</span>
+                            </a>
+                            <button
+                                onClick={async () => {
+                                    try {
+                                        await navigator.clipboard.writeText(`${shareDataState.text}\n\n${shareDataState.url}`);
+                                        setToast({ show: true, message: '¡Copiado!' });
+                                        setShowShareModal(false);
+                                    } catch (e) {
+                                        setToast({ show: true, message: 'Error al copiar' });
+                                    }
+                                }}
+                                className="flex flex-col items-center justify-center p-4 rounded-sm bg-gold-400/10 hover:bg-gold-400/20 text-gold-600 dark:text-gold-400 transition-colors gap-2"
+                            >
+                                <span className="material-icons text-3xl">content_copy</span>
+                                <span className="text-sm font-bold">Copiar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <header className="relative py-32 lg:py-48 overflow-hidden z-10 flex items-center justify-center" style={{
                 backgroundImage: `url('/Fotos/Background/BackgroundTestimonios2.webp')`,
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',
@@ -274,7 +382,7 @@ const Testimonials: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-50 via-forest-50/20 to-transparent dark:from-forest-900 dark:via-forest-900/40 dark:to-transparent transition-colors duration-300"></div>
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <ScrollReveal>
-                        <div className="glass-panel p-10 md:p-12 rounded-sm max-w-4xl mx-auto bg-white/60 dark:bg-forest-900/60">
+                        <div className="max-w-4xl mx-auto">
                             <span className="block text-gold-600 dark:text-gold-400 uppercase tracking-[0.3em] text-xs font-bold mb-6">Testimonios & Casos de Éxito</span>
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display text-forest-900 dark:text-cream leading-[0.95] mb-6 drop-shadow-lg transition-colors duration-300">
                                 Resultados que <br /><span className="italic text-gold-500 text-shadow-gold">Transforman</span>
@@ -292,37 +400,33 @@ const Testimonials: React.FC = () => {
                     <div className="mb-20">
                         <ScrollReveal>
                             <div className="bg-white dark:bg-forest-800 border border-forest-200 dark:border-forest-700 rounded-sm overflow-hidden grid md:grid-cols-2 shadow-2xl shadow-forest-900/10 dark:shadow-black/40 transition-colors duration-300">
-                                <div className="relative group cursor-pointer min-h-[400px]">
+                                <div className="relative group min-h-[400px]">
                                     <img
-                                        alt="Video Testimonio Agricultor"
+                                        alt="Martin Muñoz - Fundador BioImpacto"
                                         loading="lazy"
                                         decoding="async"
-                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK8LTGM0Iw1obqL-6byZ1tEdMqmWNamvV68m5qTT4A3smE_xtqQ0D_u5p3BCAYmTuuR8caEtSi-vr7-UXZxFY_ulxIA8I10RaN8CFkTxiOViToeBO8NeSfE-fWAqWlz0Mp70-LaQCxSrc-mknxtOn2sEmktFPg0K9BTiEphYJMt1HOZdowrSQifCnQU9na4sJGg3PMZTYn9xXkU03VnzMKfY7bUv5O06Ke0jOFjJHeBLm8oxQ_sxjGWqPJWhCcczRjB4l4Y42aY8M8"
+                                        className="absolute inset-0 w-full h-full object-cover rounded-sm"
+                                        src="/Fotos/Testimonio/FotoMartin.jpg"
                                     />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all flex items-center justify-center">
-                                        <div className="w-20 h-20 rounded-full bg-forest-900/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform border border-gold-400/30">
-                                            <span className="material-icons text-gold-400 text-4xl ml-1">play_arrow</span>
-                                        </div>
-                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-forest-900/80 via-transparent to-transparent opacity-60"></div>
                                 </div>
                                 <div className="p-10 md:p-14 flex flex-col justify-center">
                                     <div className="flex items-center justify-between mb-6">
                                         <div className="flex items-center gap-4">
                                             <img
-                                                alt="Roberto Mendez"
+                                                alt="Martin Muñoz"
                                                 loading="lazy"
                                                 decoding="async"
-                                                className="w-12 h-12 rounded-full border-2 border-gold-400 shadow-sm"
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3kJ54PaNf1GxmQJ8y9GR65pXBX04aqdDxEzjHjA_p6QW9Ortu3_t9On_KOVsXb_Vltv2KdyNDfrGW5a5oWsybYl1aD2HmliIQMzU0hVwbvT-Sh4lxwGY3yl2nR_vcxvs_iRQZLJWvcDaZT5D39tH7QExlCENILSaicTdZtqM3LRbDHI39llyBSOVGwcqAfKKqwUxBuMfP0ogW3hJyqI_l8_txHAOnpcTNYD0nvHjhoUT2K1jZYYwJgpeucRrKoanXCyfOsczLh3Pf"
+                                                className="w-12 h-12 rounded-full border-2 border-gold-400 shadow-sm object-cover"
+                                                src="/Fotos/Testimonio/PerfilMartin.jpg"
                                             />
                                             <div>
-                                                <h4 className="text-forest-900 dark:text-cream font-display text-xl transition-colors duration-300">Roberto Méndez</h4>
-                                                <p className="text-gold-600 dark:text-gold-400 text-xs uppercase tracking-widest font-bold">Fundo Los Nogales</p>
+                                                <h4 className="text-forest-900 dark:text-cream font-display text-xl transition-colors duration-300">Martin Muñoz</h4>
+                                                <p className="text-gold-600 dark:text-gold-400 text-xs uppercase tracking-widest font-bold">FOUNDER BIOIMPACTO</p>
                                             </div>
                                         </div>
                                         <button
-                                            onClick={() => handleShare("Implementar los núcleos de lombrices californianas redujo nuestros costos de fertilización en un 40% el primer año. La calidad del suelo ha mejorado visiblemente.", "Roberto Méndez")}
+                                            onClick={() => handleShare("Mi visión es transformar la gestión de residuos en Chile. No solo se trata de reciclar, sino de crear valor real: recuperar suelos degradados y generar proteína sostenible para el futuro de la agricultura.", "Martin Muñoz")}
                                             className="text-forest-300 dark:text-forest-600 hover:text-gold-500 dark:hover:text-gold-400 transition-colors p-2 rounded-full hover:bg-forest-50 dark:hover:bg-forest-700/50"
                                             aria-label="Compartir testimonio"
                                         >
@@ -332,14 +436,14 @@ const Testimonials: React.FC = () => {
                                     <blockquote className="text-2xl text-forest-800 dark:text-gray-200 font-serif italic mb-8 relative leading-relaxed transition-colors duration-300">
                                         <span className="absolute -top-4 -left-2 text-6xl text-gold-400/20 font-serif">"</span>
                                         <ExpandableText
-                                            text="Implementar los núcleos de lombrices californianas redujo nuestros costos de fertilización en un 40% el primer año. La calidad del suelo ha mejorado visiblemente, recuperando estructura y vida que habíamos perdido."
+                                            text="Mi visión es transformar la gestión de residuos en Chile. No solo se trata de reciclar, sino de crear valor real: recuperar suelos degradados y generar proteína sostenible para el futuro de la agricultura."
                                             limit={150}
                                         />
                                     </blockquote>
                                     <div className="mb-2">
                                         <StarRating rating={5} />
                                     </div>
-                                    <p className="text-sm text-forest-600 dark:text-gray-400 font-light">Servicio: Consultoría Integral & Núcleos de Lombriz</p>
+                                    <p className="text-sm text-forest-600 dark:text-gray-400 font-light">Gestión de Residuos & Bioconversión</p>
                                 </div>
                             </div>
                         </ScrollReveal>
@@ -349,7 +453,7 @@ const Testimonials: React.FC = () => {
                         <div ref={testimonialsListRef} className="scroll-mt-32">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 min-h-[500px]">
                                 {currentTestimonials.map((t) => (
-                                    <div key={t.id} className="bg-white dark:bg-forest-800 border border-forest-200 dark:border-forest-700 p-8 rounded-sm shadow-lg hover:shadow-2xl hover:border-gold-400/30 transition-all duration-300 flex flex-col h-full group animate-fade-in">
+                                    <div key={t.id} className="bg-white/90 dark:bg-forest-800/90 backdrop-blur-sm border border-forest-200 dark:border-forest-700 p-8 rounded-sm shadow-lg hover:shadow-2xl hover:border-gold-400/30 transition-all duration-300 flex flex-col h-full group animate-fade-in">
                                         <div className="flex justify-between items-start mb-6">
                                             <StarRating rating={t.rating} />
                                             <span className="material-icons text-forest-200 dark:text-forest-600 group-hover:text-gold-400/20 transition-colors text-4xl">format_quote</span>
@@ -446,7 +550,7 @@ const Testimonials: React.FC = () => {
                             </div>
                             <div className="space-y-8">
                                 {/* Case 1: Avícola */}
-                                <div className="bg-white dark:bg-forest-800 border border-forest-200 dark:border-forest-700 p-8 rounded-sm hover:shadow-2xl hover:border-forest-400 dark:hover:border-forest-600 transition-all duration-300 group shadow-lg">
+                                <div className="bg-white/90 dark:bg-forest-800/90 backdrop-blur-sm border border-forest-200 dark:border-forest-700 p-8 rounded-sm hover:shadow-2xl hover:border-forest-400 dark:hover:border-forest-600 transition-all duration-300 group shadow-lg">
                                     <div className="flex flex-col md:flex-row gap-8 items-center">
                                         <div className="w-full md:w-1/3">
                                             <div className="aspect-video bg-forest-100 dark:bg-forest-900 overflow-hidden relative rounded-sm shadow-inner border border-forest-200 dark:border-forest-700">
@@ -509,7 +613,7 @@ const Testimonials: React.FC = () => {
                                 </div>
 
                                 {/* Case 2: Frutícola / Packing (Formerly Vineyard) */}
-                                <div className="bg-white dark:bg-forest-800 border border-forest-200 dark:border-forest-700 p-8 rounded-sm hover:shadow-2xl hover:border-forest-400 dark:hover:border-forest-600 transition-all duration-300 group shadow-lg">
+                                <div className="bg-white/90 dark:bg-forest-800/90 backdrop-blur-sm border border-forest-200 dark:border-forest-700 p-8 rounded-sm hover:shadow-2xl hover:border-forest-400 dark:hover:border-forest-600 transition-all duration-300 group shadow-lg">
                                     <div className="flex flex-col md:flex-row gap-8 items-center">
                                         <div className="w-full md:w-1/3">
                                             <div className="aspect-video bg-forest-100 dark:bg-forest-900 overflow-hidden relative rounded-sm shadow-inner border border-forest-200 dark:border-forest-700">
@@ -589,11 +693,11 @@ const Testimonials: React.FC = () => {
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleFormChange}
-                                                    className={`w-full bg-white dark:bg-forest-800 border ${formErrors.name ? 'border-red-400' : 'border-forest-200 dark:border-forest-600'} rounded-sm px-4 py-3 text-forest-900 dark:text-cream placeholder-gray-400 dark:placeholder-gray-500 focus:border-gold-400 focus:ring-0 transition-colors outline-none`}
                                                     placeholder="Ej. Juan Pérez"
+                                                    className={`w-full bg-forest-50 dark:bg-forest-900 border ${formErrors.name ? 'border-red-400' : 'border-forest-200 dark:border-forest-700'} rounded-sm px-4 py-3 outline-none focus:border-gold-400 transition-colors text-forest-900 dark:text-white placeholder-forest-300 dark:placeholder-forest-600`}
                                                     type="text"
                                                 />
-                                                {formErrors.name && <p className="text-red-500 text-xs mt-1">{formErrors.name}</p>}
+                                                {formErrors.name && <span className="text-red-400 text-xs mt-1 block">{formErrors.name}</span>}
                                             </div>
                                             <div>
                                                 <label className="block text-xs uppercase tracking-widest text-gold-600 dark:text-gold-400 font-bold mb-2">Empresa / Fundo</label>
@@ -601,8 +705,8 @@ const Testimonials: React.FC = () => {
                                                     name="company"
                                                     value={formData.company}
                                                     onChange={handleFormChange}
-                                                    className="w-full bg-white dark:bg-forest-800 border border-forest-200 dark:border-forest-600 rounded-sm px-4 py-3 text-forest-900 dark:text-cream placeholder-gray-400 dark:placeholder-gray-500 focus:border-gold-400 focus:ring-0 transition-colors outline-none"
                                                     placeholder="Ej. Agrícola del Valle"
+                                                    className="w-full bg-forest-50 dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-sm px-4 py-3 outline-none focus:border-gold-400 transition-colors text-forest-900 dark:text-white placeholder-forest-300 dark:placeholder-forest-600"
                                                     type="text"
                                                 />
                                             </div>
@@ -625,9 +729,9 @@ const Testimonials: React.FC = () => {
                                                 name="message"
                                                 value={formData.message}
                                                 onChange={handleFormChange}
-                                                className={`w-full bg-white dark:bg-forest-800 border ${formErrors.message ? 'border-red-400' : 'border-forest-200 dark:border-forest-600'} rounded-sm px-4 py-3 text-forest-900 dark:text-cream placeholder-gray-400 dark:placeholder-gray-500 focus:border-gold-400 focus:ring-0 transition-colors outline-none`}
                                                 placeholder="Cuéntanos cómo BioImpacto ayudó a tu proyecto..."
                                                 rows={4}
+                                                className={`w-full bg-forest-50 dark:bg-forest-900 border ${formErrors.message ? 'border-red-400' : 'border-forest-200 dark:border-forest-700'} rounded-sm px-4 py-3 outline-none focus:border-gold-400 transition-colors text-forest-900 dark:text-white placeholder-forest-300 dark:placeholder-forest-600`}
                                             ></textarea>
                                             {formErrors.message && <p className="text-red-500 text-xs mt-1">{formErrors.message}</p>}
                                         </div>
@@ -645,9 +749,9 @@ const Testimonials: React.FC = () => {
                             </ScrollReveal>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </div >
+            </section >
+        </div >
     );
 };
 

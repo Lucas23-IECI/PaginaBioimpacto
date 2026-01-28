@@ -7,7 +7,7 @@ const AccordionItem: React.FC<{ question: string; answer: React.ReactNode }> = (
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className={`group bg-white dark:bg-forest-800 border ${isOpen ? 'border-gold-400 ring-1 ring-gold-400/20' : 'border-forest-200 dark:border-forest-700'} rounded-sm overflow-hidden transition-all duration-300 shadow-sm hover:shadow-lg hover:border-gold-400/30`}>
+        <div className={`group bg-white/90 dark:bg-forest-800/90 backdrop-blur-sm border ${isOpen ? 'border-gold-400 ring-1 ring-gold-400/20' : 'border-forest-200 dark:border-forest-700'} rounded-sm overflow-hidden transition-all duration-300 shadow-sm hover:shadow-lg hover:border-gold-400/30`}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex justify-between items-center w-full text-left p-6 hover:bg-forest-50 dark:hover:bg-forest-700 transition-colors cursor-pointer select-none"
@@ -35,7 +35,11 @@ const FAQ: React.FC = () => {
     return (
         <div className="bg-forest-50 dark:bg-forest-900 min-h-screen transition-colors duration-300 relative">
             {/* Background Image para toda la página */}
-            {/* Background Image removed to use Header background instead */}
+            {/* Background Texture for Body Content */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute inset-0 bg-[url('/Fotos/Background/BackgroundFaq.webp')] bg-cover bg-center opacity-[0.03] dark:opacity-[0.05] bg-fixed mix-blend-multiply dark:mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forest-50/50 to-forest-50/80 dark:via-forest-900/50 dark:to-forest-900/80"></div>
+            </div>
 
             {/* Header Section */}
             <div className="pt-32 pb-16 relative z-10 overflow-hidden transition-colors duration-300 flex items-center justify-center" style={{
@@ -219,7 +223,7 @@ const FAQ: React.FC = () => {
                     {/* Contact Sidebar - Right Column */}
                     <div className="lg:col-span-4 relative">
                         <div className="sticky top-32 space-y-6">
-                            <div className="bg-white dark:bg-forest-800 p-8 rounded-sm border border-forest-200 dark:border-forest-700 shadow-lg transition-colors duration-300">
+                            <div className="bg-white/90 dark:bg-forest-800/90 backdrop-blur-sm p-8 rounded-sm border border-forest-200 dark:border-forest-700 shadow-lg transition-colors duration-300">
                                 <h3 className="text-xl font-display text-forest-900 dark:text-white mb-4 transition-colors duration-300">¿No encuentras tu respuesta?</h3>
                                 <p className="text-forest-700 dark:text-gray-300 text-sm font-light mb-6 transition-colors duration-300">
                                     Nuestro equipo técnico está disponible para responder dudas específicas sobre tu proyecto.

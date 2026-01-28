@@ -40,6 +40,43 @@ const Contact: React.FC = () => {
         message: ''
     });
 
+    const [formErrors, setFormErrors] = useState({
+        name: '',
+        company: '',
+        message: ''
+    });
+
+    const validateForm = () => {
+        let errors = { name: '', company: '', message: '' };
+        let isValid = true;
+
+        // Name: no numbers allowed
+        if (/\d/.test(formData.name)) {
+            errors.name = 'El nombre no puede contener números.';
+            isValid = false;
+        }
+
+        // Company: max 2 numbers allowed
+        if ((formData.company.match(/\d/g) || []).length > 2) {
+            errors.company = 'El nombre de empresa/campo no puede tener más de 2 números.';
+            isValid = false;
+        }
+
+        // Message/Subject length check (implied by "largo del asunto")
+        // We'll check message length as proxy or ensure it's substantial
+        if (formData.message.length < 20) {
+            errors.message = 'El mensaje es muy corto (mínimo 20 caracteres).';
+            isValid = false;
+        }
+
+        // Basic required checks
+        if (!formData.name.trim()) { errors.name = 'El nombre es obligatorio.'; isValid = false; }
+        if (!formData.message.trim()) { errors.message = 'El mensaje puede estar vacío.'; isValid = false; }
+
+        setFormErrors(errors);
+        return isValid;
+    };
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { id, value } = e.target;
         setFormData(prev => ({
@@ -51,38 +88,79 @@ const Contact: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Construct the email body
-        const subject = `Consulta Web BioImpacto: ${formData.interest}`;
+        // Perform validation synchronously for the toast
+        const submissionErrors = { name: '', company: '', message: '' };
+        let hasError = false;
+
+        if (/\d/.test(formData.name)) {
+            submissionErrors.name = 'El nombre no puede contener números.';
+            hasError = true;
+        }
+        if (!formData.name.trim()) {
+            submissionErrors.name = 'El nombre es obligatorio.';
+            hasError = true;
+        }
+
+        if ((formData.company.match(/\d/g) || []).length > 2) {
+            submissionErrors.company = 'Empresa: máx 2 números.';
+            hasError = true;
+        }
+
+        if (formData.message.length < 20) {
+            submissionErrors.message = 'El mensaje es muy corto (mínimo 20 caracteres).';
+            hasError = true;
+        }
+        if (!formData.message.trim()) {
+            submissionErrors.message = 'El mensaje es obligatorio.';
+            hasError = true;
+        }
+
+        // Set state for inline errors
+        setFormErrors(submissionErrors);
+
+        if (hasError) {
+            // Find the first error to show in toast
+            const firstMsg = submissionErrors.name || submissionErrors.company || submissionErrors.message;
+            setToast({ show: true, message: `Error: ${firstMsg}` });
+            return;
+        }
+
+        // Construct the email body (First Person)
+        const subject = `Consulta web: ${formData.interest} - ${formData.name}`;
         const body = `Hola equipo BioImpacto,
 
-Me gustaría recibir información sobre lo siguiente:
+Mi nombre es ${formData.name} y les escribo de parte de ${formData.company || 'mi proyecto personal'}.
 
-------------------------------------------------
-DATOS DE CONTACTO
-------------------------------------------------
-• Nombre: ${formData.name}
-• Empresa/Campo: ${formData.company || 'No especificado'}
-• Interés Principal: ${formData.interest}
+Estoy interesado en recibir información sobre: ${formData.interest}.
 
-------------------------------------------------
-MENSAJE
-------------------------------------------------
-${formData.message}
+Mensaje:
+"${formData.message}"
 
-------------------------------------------------
-Enviado desde el formulario web de BioImpacto.`;
+Quedo atento a su respuesta.
+
+Saludos cordiales,
+${formData.name}`;
 
         // Create mailto link
-        // We use encodeURIComponent to ensure special characters (newlines, accents) are handled correctly
         const mailtoLink = `mailto:contacto@bioimpacto.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
         // Open email client
         window.location.href = mailtoLink;
+
+        // Reset form after a delay
+        setTimeout(() => {
+            setFormData({ name: '', company: '', interest: 'Núcleos de Lombrices Californianas', message: '' });
+            setFormErrors({ name: '', company: '', message: '' });
+        }, 1000);
     };
 
     return (
         <div className="min-h-screen relative bg-forest-50 dark:bg-forest-900 transition-colors duration-300">
-            {/* Background Image removed to use Header background instead */}
+            {/* Background Texture for Body Content */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute inset-0 bg-[url('/Fotos/Background/BackgroundContacto.webp')] bg-cover bg-center opacity-[0.03] dark:opacity-[0.05] bg-fixed mix-blend-multiply dark:mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forest-50/50 to-forest-50/80 dark:via-forest-900/50 dark:to-forest-900/80"></div>
+            </div>
 
             <header className="relative py-32 lg:py-48 mb-20 flex items-center justify-center text-center overflow-hidden z-10" style={{
                 backgroundImage: `url('/Fotos/Background/BackgroundContacto.webp')`,
@@ -109,7 +187,7 @@ Enviado desde el formulario web de BioImpacto.`;
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
                     {/* Contact Form */}
                     <div className="lg:col-span-7 order-2 lg:order-1">
-                        <form onSubmit={handleSubmit} className="space-y-8 bg-white dark:bg-forest-800 p-8 md:p-12 rounded-sm border border-forest-200 dark:border-forest-700 shadow-xl shadow-forest-900/10 dark:shadow-black/20 transition-colors duration-300">
+                        <form onSubmit={handleSubmit} className="space-y-8 bg-white/90 dark:bg-forest-800/90 backdrop-blur-sm p-8 md:p-12 rounded-sm border border-forest-200 dark:border-forest-700 shadow-xl shadow-forest-900/10 dark:shadow-black/20 transition-colors duration-300">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
                                     <label className="block text-xs uppercase tracking-widest font-semibold text-forest-800 dark:text-white/90 mb-2 transition-colors duration-300" htmlFor="name">Nombre Completo</label>
@@ -117,22 +195,25 @@ Enviado desde el formulario web de BioImpacto.`;
                                         required
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="w-full bg-forest-50 dark:bg-forest-900 border-b border-forest-300 dark:border-forest-600 text-forest-900 dark:text-white px-0 py-3 focus:ring-0 focus:border-gold-500 transition-colors placeholder-forest-400 dark:placeholder-forest-700/50 outline-none"
+                                        className={`w-full bg-forest-50 dark:bg-forest-900 border-b ${formErrors.name ? 'border-red-400' : 'border-forest-300 dark:border-forest-600'} text-forest-900 dark:text-white px-4 py-3 focus:ring-0 focus:border-gold-500 transition-colors placeholder-forest-400 dark:placeholder-forest-700/50 outline-none`}
+                                        type="text"
                                         id="name"
                                         placeholder="Ej. Juan Pérez"
-                                        type="text"
                                     />
+                                    {formErrors.name && <span className="text-red-400 text-xs mt-1 block">{formErrors.name}</span>}
                                 </div>
                                 <div>
                                     <label className="block text-xs uppercase tracking-widest font-semibold text-forest-800 dark:text-white/90 mb-2 transition-colors duration-300" htmlFor="company">Empresa / Campo</label>
                                     <input
+                                        name="company" // Changed from email to company to match state
                                         value={formData.company}
                                         onChange={handleChange}
-                                        className="w-full bg-forest-50 dark:bg-forest-900 border-b border-forest-300 dark:border-forest-600 text-forest-900 dark:text-white px-0 py-3 focus:ring-0 focus:border-gold-500 transition-colors placeholder-forest-400 dark:placeholder-forest-700/50 outline-none"
+                                        className={`w-full bg-forest-50 dark:bg-forest-900 border-b ${formErrors.company ? 'border-red-400' : 'border-forest-300 dark:border-forest-600'} text-forest-900 dark:text-white px-4 py-3 focus:ring-0 focus:border-gold-500 transition-colors placeholder-forest-400 dark:placeholder-forest-700/50 outline-none`}
+                                        type="text"
                                         id="company"
                                         placeholder="Ej. Agrícola Santa María"
-                                        type="text"
                                     />
+                                    {formErrors.company && <span className="text-red-400 text-xs mt-1 block">{formErrors.company}</span>}
                                 </div>
                             </div>
                             <div>
@@ -140,7 +221,7 @@ Enviado desde el formulario web de BioImpacto.`;
                                 <select
                                     value={formData.interest}
                                     onChange={handleChange}
-                                    className="w-full bg-forest-50 dark:bg-forest-900 border-b border-forest-300 dark:border-forest-600 text-forest-900 dark:text-white px-0 py-3 focus:ring-0 focus:border-gold-500 transition-colors cursor-pointer outline-none"
+                                    className="w-full bg-forest-50 dark:bg-forest-900 border-b border-forest-300 dark:border-forest-600 text-forest-900 dark:text-white px-4 py-3 focus:ring-0 focus:border-gold-500 transition-colors cursor-pointer outline-none"
                                     id="interest"
                                 >
                                     <option>Núcleos de Lombrices Californianas</option>
@@ -156,11 +237,12 @@ Enviado desde el formulario web de BioImpacto.`;
                                     required
                                     value={formData.message}
                                     onChange={handleChange}
-                                    className="w-full bg-forest-50 dark:bg-forest-900 border-b border-forest-300 dark:border-forest-600 text-forest-900 dark:text-white px-0 py-3 focus:ring-0 focus:border-gold-500 transition-colors placeholder-forest-400 dark:placeholder-forest-700/50 resize-none outline-none"
+                                    className={`w-full bg-forest-50 dark:bg-forest-900 border-b ${formErrors.message ? 'border-red-400' : 'border-forest-300 dark:border-forest-600'} text-forest-900 dark:text-white px-4 py-3 focus:ring-0 focus:border-gold-500 transition-colors placeholder-forest-400 dark:placeholder-forest-700/50 resize-none outline-none`}
                                     id="message"
                                     placeholder="Cuéntanos brevemente sobre tu proyecto o duda..."
                                     rows={4}
                                 ></textarea>
+                                {formErrors.message && <span className="text-red-400 text-xs mt-1 block">{formErrors.message}</span>}
                             </div>
                             <div className="pt-4">
                                 <button type="submit" className="group bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-4 px-10 rounded-sm w-full md:w-auto border border-gold-400 transition-all hover:tracking-wider uppercase text-xs tracking-widest flex items-center justify-center gap-3 shadow-lg hover:shadow-gold-400/20">

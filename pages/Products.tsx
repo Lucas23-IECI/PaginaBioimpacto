@@ -151,7 +151,11 @@ const Products: React.FC = () => {
     return (
         <div className="pt-20 bg-forest-50 dark:bg-forest-900 transition-colors duration-300 min-h-screen relative">
             {/* Background Image para toda la página */}
-            {/* Background Image removed to use Header background instead */}
+            {/* Background Texture for Body Content */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute inset-0 bg-[url('/Fotos/Background/BackgroundProductos.webp')] bg-cover bg-center opacity-[0.03] dark:opacity-[0.05] bg-fixed mix-blend-multiply dark:mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forest-50/50 to-forest-50/80 dark:via-forest-900/50 dark:to-forest-900/80"></div>
+            </div>
 
             <header className="relative py-32 lg:py-48 overflow-hidden z-10 flex items-center justify-center" style={{
                 backgroundImage: `url('/Fotos/Background/BackgroundProductos.webp')`,
@@ -213,7 +217,7 @@ const Products: React.FC = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                            <div className="lg:w-1/2 bg-forest-900/95 backdrop-blur-md p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                                 {/* Decorative Blur */}
                                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold-400/5 rounded-full blur-3xl"></div>
 
@@ -277,7 +281,7 @@ const Products: React.FC = () => {
                         <div className="flex flex-col lg:flex-row-reverse shadow-2xl shadow-forest-900/10 dark:shadow-black/50 rounded-sm overflow-hidden border border-forest-200 dark:border-forest-800 transition-colors duration-300">
 
                             {/* Text Column (Right) - Dark Themed: Forest 900 */}
-                            <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                            <div className="lg:w-1/2 bg-forest-900/95 backdrop-blur-md p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                                 {/* Decorative Blur */}
                                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold-400/5 rounded-full blur-3xl"></div>
 
@@ -389,7 +393,7 @@ const Products: React.FC = () => {
                             </div>
 
                             {/* Right Content Side - Dark Theme Always */}
-                            <div className="lg:w-1/2 bg-forest-900 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                            <div className="lg:w-1/2 bg-forest-900/95 backdrop-blur-md p-6 md:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                                 {/* Decorative Glow */}
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold-400/5 rounded-full blur-3xl pointer-events-none"></div>
 

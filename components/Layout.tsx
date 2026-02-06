@@ -46,9 +46,27 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     useEffect(() => {
         const originalTitle = document.title;
 
+        // Array of fun messages when user leaves the tab
+        const awayMessages = [
+            "     ¡Te extrañamos! 🌿     ",
+            "     ¡Vuelve pronto! 🪱     ",
+            "  Las lombrices te esperan 🐛  ",
+            "      ¡No te vayas! 🌱      ",
+            "  Transformando residuos... 🔄  ",
+            "    ¡Hola de nuevo! 🌿    ",
+            "       ¿Ya te vas? 😢       ",
+            "  ¡El compost te necesita! 🍂  ",
+            "    Bio-extrañándote 💚    ",
+            "   ¡Regresa al verde! 🌿   ",
+            "    ¿Volverás pronto? 🪴    ",
+            "  ¡La naturaleza te llama! 🌍  ",
+        ];
+
         const handleVisibilityChange = () => {
             if (document.hidden) {
-                document.title = "¡Te extrañamos! 🌿";
+                // Pick a random message
+                const randomMessage = awayMessages[Math.floor(Math.random() * awayMessages.length)];
+                document.title = randomMessage;
             } else {
                 document.title = originalTitle;
             }

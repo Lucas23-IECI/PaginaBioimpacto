@@ -399,8 +399,8 @@ ${formData.name}`;
                 <div className="container mx-auto px-4 max-w-7xl">
                     <div className="mb-20">
                         <ScrollReveal>
-                            <div className="bg-white dark:bg-forest-800 border border-forest-200 dark:border-forest-700 rounded-sm overflow-hidden grid md:grid-cols-2 shadow-2xl shadow-forest-900/10 dark:shadow-black/40 transition-colors duration-300">
-                                <div className="relative group min-h-[400px]">
+                            <div className="bg-white dark:bg-forest-800 border border-forest-200 dark:border-forest-700 rounded-sm overflow-hidden grid md:grid-cols-[40%_60%] shadow-2xl shadow-forest-900/10 dark:shadow-black/40 transition-colors duration-300">
+                                <div className="relative group min-h-[600px]">
                                     <img
                                         alt="Martin Muñoz - Fundador BioImpacto"
                                         loading="lazy"

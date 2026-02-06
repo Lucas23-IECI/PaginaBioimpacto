@@ -391,15 +391,14 @@ const Products: React.FC = () => {
                     <ScrollReveal>
                         <div className="flex flex-col lg:flex-row shadow-2xl shadow-black/40 rounded-sm overflow-hidden border border-forest-800 min-h-[400px] md:min-h-[500px]">
                             {/* Left Image Side */}
-                            <div className="lg:w-1/2 relative overflow-hidden group">
+                            <div className="lg:w-1/2 relative overflow-hidden">
                                 <img
                                     alt="Instalaciones de Bioconversión Industrial"
-                                    className="w-full h-full min-h-[300px] object-cover transition-transform duration-1000 filter brightness-75"
+                                    className="w-full h-full min-h-[300px] object-cover"
                                     src="/Fotos/Productos/AsesoriaTecnica/AsesoriaTec.webp"
                                     loading="lazy"
                                     decoding="async"
                                 />
-                                <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>
 
                             {/* Right Content Side - Dark Theme Always */}
@@ -419,15 +418,15 @@ const Products: React.FC = () => {
 
                                 {/* Highlights Grid */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 md:mb-8 relative z-10">
-                                    <div className="p-4 md:p-5 border border-gold-400/30 rounded-sm bg-forest-800/50 hover:border-gold-400 transition-colors">
+                                    <div className="p-4 md:p-5 border border-gold-400 rounded-sm bg-forest-800/70 shadow-[0_0_15px_rgba(212,175,55,0.15)]">
                                         <div className="text-gold-400 mb-2"><span className="material-icons">trending_up</span></div>
                                         <h4 className="text-white font-bold text-sm mb-2">Evaluación de Oportunidad Comercial</h4>
-                                        <p className="text-xs text-gray-400">Analizamos si tu flujo de residuos y escala permiten desarrollar un sistema viable económicamente y orientado a venta.</p>
+                                        <p className="text-xs text-gray-300">Analizamos si tu flujo de residuos y escala permiten desarrollar un sistema viable económicamente y orientado a venta.</p>
                                     </div>
-                                    <div className="p-4 md:p-5 border border-gold-400/30 rounded-sm bg-forest-800/50 hover:border-gold-400 transition-colors">
+                                    <div className="p-4 md:p-5 border border-gold-400 rounded-sm bg-forest-800/70 shadow-[0_0_15px_rgba(212,175,55,0.15)]">
                                         <div className="text-gold-400 mb-2"><span className="material-icons">schema</span></div>
                                         <h4 className="text-white font-bold text-sm mb-2">Diseño de Sistemas Productivos</h4>
-                                        <p className="text-xs text-gray-400">Diseñamos sistemas pensados para producir biomasa vendible, optimizando costos, tiempos y rendimiento.</p>
+                                        <p className="text-xs text-gray-300">Diseñamos sistemas pensados para producir biomasa vendible, optimizando costos, tiempos y rendimiento.</p>
                                     </div>
                                 </div>
 

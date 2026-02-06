@@ -148,112 +148,53 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-            {/* Consulting Section - New Design */}
-            <section className="lazy-section bg-forest-900 text-white overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-2">
-                    {/* Left Image Side */}
-                    <div className="relative min-h-[500px] lg:min-h-[900px]">
-                        <img
-                            src="/Fotos/Home/AsesoriaFoto.webp"
-                            alt="Invernadero y estructura verde"
-                            loading="lazy"
-                            decoding="async"
-                            width="960"
-                            height="900"
-                            className="absolute inset-0 w-full h-full object-cover opacity-80"
-                        />
-                        <div className="absolute inset-0 bg-forest-900/20"></div>
-                        {/* Gold vertical line separator on right edge */}
-                        <div className="absolute top-0 right-0 w-1 h-full bg-gold-400 hidden lg:block"></div>
-                    </div>
-
-                    {/* Right Content Side */}
-                    <div className="p-10 md:p-16 lg:p-24 flex flex-col justify-center">
-                        <ScrollReveal>
-                            <span className="text-gold-500 text-xs uppercase tracking-[0.25em] font-bold mb-4 block">INGENIERÍA & DISEÑO</span>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
-                                Asesoría Técnica Especializada
-                            </h2>
-                            <p className="text-gray-300 font-light text-lg mb-10 leading-relaxed">
+            {/* Consulting Section - Matching Card Design */}
+            <div className="container mx-auto px-0 lg:px-4 mb-32 max-w-7xl">
+                <ScrollReveal>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-xl rounded-sm overflow-hidden border border-forest-200 dark:border-white/5">
+                        <div className="relative min-h-[500px] lg:h-auto overflow-hidden group">
+                            <img
+                                src="/Fotos/Home/AsesoriaFoto.webp"
+                                alt="Invernadero y estructura verde"
+                                loading="lazy"
+                                decoding="async"
+                                width="800"
+                                height="875"
+                                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                            />
+                            <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        </div>
+                        <div className="bg-white dark:bg-forest-800 p-12 md:p-20 flex flex-col justify-center border-t lg:border-t-0 border-l-0 lg:border-l-4 border-gold-400 transition-colors duration-300">
+                            <span className="text-gold-600 dark:text-gold-500 text-xs uppercase tracking-[0.25em] mb-4 font-bold">INGENIERÍA & DISEÑO</span>
+                            <h3 className="text-3xl md:text-4xl lg:text-5xl font-display text-forest-900 dark:text-white mb-8 leading-tight transition-colors duration-300">Asesoría Técnica Especializada</h3>
+                            <p className="text-forest-700 dark:text-white/80 mb-10 font-light leading-relaxed text-lg transition-colors duration-300">
                                 Asesoramos a empresas, agricultores y proyectos de economía circular en el diseño e implementación de sistemas de bioconversión (lombrices, BSF y compostaje industrial).
                             </p>
-
-                            {/* Cards Row */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                                <div className="border border-gold-500/30 bg-forest-800/50 p-6 rounded-sm hover:border-gold-500 transition-colors">
-                                    <span className="material-icons text-gold-500 text-3xl mb-4">trending_down</span>
-                                    <h4 className="font-bold text-white mb-2">Optimización de gestión de residuos</h4>
-                                    <p className="text-sm text-gray-400">Reducción de costos operativos mediante bioconversión in situ.</p>
-                                </div>
-                                <div className="border border-gold-500/30 bg-forest-800/50 p-6 rounded-sm hover:border-gold-500 transition-colors">
-                                    <span className="material-icons text-gold-500 text-3xl mb-4">sync</span>
-                                    <h4 className="font-bold text-white mb-2">Implementación de economía circular</h4>
-                                    <p className="text-sm text-gray-400">Valorización de residuos orgánicos en subproductos que puedes rentabilizar.</p>
-                                </div>
-                            </div>
-
-                            <p className="text-gray-300 mb-8 font-light">
-                                Ofrecemos asesoría técnica en bioconversión de residuos orgánicos, desde proyectos piloto hasta implementación a mayor escala.
-                            </p>
-
-                            <Link to="/contacto" className="bg-gold-500 hover:bg-gold-400 text-forest-900 font-bold py-4 px-8 rounded-sm inline-flex items-center gap-2 uppercase text-xs tracking-widest transition-colors w-fit mb-16">
-                                Evaluar mi proyecto
-                                <span className="material-icons text-sm">arrow_forward</span>
+                            <ul className="space-y-6 mb-12 text-sm text-forest-600 dark:text-white/70">
+                                <li className="flex items-center gap-4 group/item">
+                                    <span className="w-2 h-2 rotate-45 bg-gold-500 group-hover/item:scale-125 transition-transform"></span>
+                                    <span className="font-medium tracking-wide uppercase text-xs">Diagnóstico de residuos y volumen</span>
+                                </li>
+                                <li className="flex items-center gap-4 group/item">
+                                    <span className="w-2 h-2 rotate-45 bg-gold-500 group-hover/item:scale-125 transition-transform"></span>
+                                    <span className="font-medium tracking-wide uppercase text-xs">Selección de tecnología (lombriz / BSF / híbrido)</span>
+                                </li>
+                                <li className="flex items-center gap-4 group/item">
+                                    <span className="w-2 h-2 rotate-45 bg-gold-500 group-hover/item:scale-125 transition-transform"></span>
+                                    <span className="font-medium tracking-wide uppercase text-xs">Diseño del sistema y acompañamiento</span>
+                                </li>
+                                <li className="flex items-center gap-4 group/item">
+                                    <span className="w-2 h-2 rotate-45 bg-gold-500 group-hover/item:scale-125 transition-transform"></span>
+                                    <span className="font-medium tracking-wide uppercase text-xs">Ideal para empresas, agroindustria y municipios</span>
+                                </li>
+                            </ul>
+                            <Link to="/contacto" className="bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-4 px-8 rounded-sm inline-flex items-center gap-2 uppercase text-xs tracking-widest transition-all duration-300 w-fit group/link">
+                                EVALUAR MI PROYECTO <span className="material-icons text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
                             </Link>
-
-                            {/* Lists Row */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                <div>
-                                    <h5 className="font-bold text-white mb-6">¿Qué incluye nuestra asesoría técnica?</h5>
-                                    <ul className="space-y-3">
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">check_circle</span>
-                                            Diagnóstico de residuos y volumen
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">check_circle</span>
-                                            Selección de tecnología (lombriz / BSF / híbrido)
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">check_circle</span>
-                                            Diseño del sistema
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">check_circle</span>
-                                            Acompañamiento en implementación
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">check_circle</span>
-                                            Indicadores de desempeño
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h5 className="font-bold text-white mb-6">¿Para quién es este servicio?</h5>
-                                    <ul className="space-y-3">
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">business</span>
-                                            Empresas con residuos orgánicos
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">agriculture</span>
-                                            Agroindustria
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">account_balance</span>
-                                            Municipalidades
-                                        </li>
-                                        <li className="flex items-center gap-3 text-sm text-gray-300">
-                                            <span className="material-icons text-gold-500 text-xs">lightbulb</span>
-                                            Proyectos de innovación
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </ScrollReveal>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </ScrollReveal>
+            </div>
 
             <section className="lazy-section relative py-40" style={{
                 backgroundImage: `url('/Fotos/Background/BackgroundOrigen.webp')`,
@@ -269,29 +210,29 @@ const Home: React.FC = () => {
                             <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold-400/30"></div>
                             <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold-400/30"></div>
                             <span className="uppercase tracking-[0.3em] text-xs font-bold text-gold-600 dark:text-gold-500 mb-8 block">El Origen</span>
-                            <h2 className="text-4xl md:text-6xl font-display text-forest-900 dark:text-white mb-6 leading-tight transition-colors duration-300">
-                                "BioImpacto nació en el campo..."
+                            <h2 className="text-3xl md:text-5xl font-display text-forest-900 dark:text-white mb-6 leading-tight transition-colors duration-300">
+                                Soluciones reales para gestionar residuos orgánicos, probadas en terreno
                             </h2>
                             <p className="text-lg md:text-xl text-forest-700 dark:text-gold-400 font-medium mb-10 max-w-3xl mx-auto italic">
-                                Experiencia real en vermicompostaje y bioconversión de residuos orgánicos
+                                Diseñamos e implementamos sistemas de vermicompostaje y bioconversión operables, escalables y rentables.
                             </p>
                             <div className="prose prose-lg mx-auto mb-12 font-light text-forest-800 dark:text-white/80 leading-loose transition-colors duration-300">
                                 <p className="mb-8">
-                                    Empecé compostando <strong>residuos orgánicos</strong>, entendiendo errores, probando sistemas de <strong>vermicompostaje y bioconversión</strong>, y viendo qué funcionaba realmente bajo el sol y la lluvia.
+                                    Empezamos compostando residuos orgánicos, equivocándonos, ajustando y probando sistemas bajo sol, lluvia y uso real.
                                 </p>
                                 <div className="py-8 relative">
                                     <span className="absolute top-0 left-1/2 -translate-x-1/2 text-gold-400/20 text-6xl font-serif">"</span>
-                                    <p className="text-2xl text-forest-900 dark:text-white font-display italic relative z-10 transition-colors duration-300">
-                                        Lo que transforma un hobby en una <strong>solución de gestión de residuos orgánicos</strong> es el sistema completo.
+                                    <p className="text-3xl md:text-4xl text-forest-900 dark:text-white font-display italic relative z-10 transition-colors duration-300">
+                                        Lo que transforma un hobby en una solución real es el sistema completo.
                                     </p>
                                 </div>
                                 <p className="mt-6">
-                                    Hoy, <strong>BioImpacto</strong> acompaña a <strong>productores, agricultores y empresas</strong> a implementar <strong>soluciones de vermicompostaje y bioconversión de residuos orgánicos en Chile</strong>, diseñadas para ser <strong>escalables, rentables y operables en la vida real</strong>.
+                                    Hoy acompañamos a productores, agricultores y empresas en Chile a implementar soluciones reales de gestión de residuos orgánicos, diseñadas para operar, escalar y generar impacto medible.
                                 </p>
                             </div>
                             <div className="flex justify-center">
                                 <Link to="/contacto" className="bg-gold-400 hover:bg-gold-500 text-forest-900 font-bold py-5 px-12 rounded-sm shadow-xl transition transform hover:-translate-y-1 flex items-center gap-3 uppercase text-xs tracking-widest border border-gold-400">
-                                    Hablemos de tu proyecto
+                                    Agenda una conversación sobre tu proyecto
                                     <span className="material-icons text-sm">phone</span>
                                 </Link>
                             </div>

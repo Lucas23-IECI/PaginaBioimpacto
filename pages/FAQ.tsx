@@ -251,9 +251,13 @@ const FAQ: React.FC = () => {
                                 <p className="relative z-10 text-white/70 text-sm font-light mb-6">
                                     Descarga nuestra guía básica digital para el manejo de núcleos de lombriz.
                                 </p>
-                                <button className="relative z-10 text-gold-400 uppercase text-xs font-bold tracking-widest hover:text-white transition-colors flex items-center gap-2">
+                                <a
+                                    href="/Archivos/GuiaBasicaVermicompostaje.pdf"
+                                    download="GuiaBasicaVermicompostaje.pdf"
+                                    className="relative z-10 text-gold-400 uppercase text-xs font-bold tracking-widest hover:text-white transition-colors flex items-center gap-2"
+                                >
                                     Descargar PDF <span className="material-icons text-sm">download</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
